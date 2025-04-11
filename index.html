@@ -165,9 +165,9 @@ details p {
 
 .timeline {
   position: relative;
-  margin-left: 80px; /* Move timeline line away from the edge */
-  padding-left: 25px;
   border-left: 3px solid #0d6efd;
+  padding-left: 30px;
+  margin-left: 0; /* Keep aligned with rest of content */
 }
 
 .timeline-item {
@@ -179,8 +179,7 @@ details p {
   font-weight: bold;
   color: #0d6efd;
   position: absolute;
-  left: -85px; /* Adjusts date further left from the vertical line */
-  top: 0;
+  left: -80px; /* Slightly pulled out from vertical line */
   width: 70px;
   text-align: right;
 }
