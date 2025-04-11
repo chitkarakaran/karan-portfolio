@@ -89,6 +89,46 @@
       font-size: 0.95rem;
     }
   }
+  .nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: auto;
+}
+
+.logo {
+  display: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    display: block;
+  }
+
+  #navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #navLinks.show {
+    display: flex;
+  }
+}
 </style>
 </head>
 <body>
@@ -100,13 +140,18 @@
     </div>
   <p>Principal Software Engineer | Medical Devices | Cybersecurity | Patented Innovator</p>
   </header>
-  <nav>
-    <a href="#resume">Resume</a>
-    <a href="#patents">Patents</a>
-    <a href="#projects">Projects</a>
-    <a href="#awards">Awards</a>
-    <a href="#press">Media</a>
-  </nav>
+<nav>
+  <div class="nav-container">
+    <div class="logo">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#resume">Resume</a>
+      <a href="#patents">Patents</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#press">Media</a>
+    </div>
+  </div>
+</nav>
 
   <div class="container">
     <section id="resume">
@@ -195,5 +240,11 @@
   <footer>
     &copy; 2025 Karan Chitkara. All rights reserved.
   </footer>
+  <script>
+    document.querySelector('.logo').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+  </script>
+
 </body>
 </html>
