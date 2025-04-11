@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Karan Chitkara | Medical Device Software Engineer</title>
 <style>
   body {
@@ -190,6 +191,33 @@ details p {
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
+#featured {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.media-logos a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  font-size: 0.95em;
+  color: #0d6efd;
+  transition: transform 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.media-logos a i {
+  margin-bottom: 8px;
+}
+
+.media-logos a:hover {
+  transform: scale(1.05);
+  color: #0a58ca;
+}
+
 
 </style>
 </head>
@@ -354,19 +382,28 @@ details p {
 </section>
 
 
-    <section id="press">
-      <h2>📰 Media Coverage</h2>
-      <div class="press">
-        <a href="https://www.startribune.com/in-parkinsons-fight-medtronics-first-in-the-world-adaptive-therapy-feature-wins-fda-approval/601227480" target="_blank">Star Tribune: Medtronic Wins First-in-the-World aDBS FDA Approval</a>
-      </div>
-      <div class="press">
-        <a href="https://time.com/7260870/deep-brain-stimulation-parkinsons-disease/" target="_blank">TIME Magazine: Deep Brain Stimulation Breakthroughs</a>
-      </div>
-      <div class="press">
-        <a href="https://www.mpo-mag.com/breaking-news/fda-approves-medtronics-sensight-directional-lead-system-for-dbs/" target="_blank">MPO: FDA Approves SenSight</a>
-      </div>
-    </section>
+<section id="featured">
+  <h2>🌍 Featured In</h2>
+  <div class="media-logos" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; text-align: center; margin-top: 20px;">
+    <a href="https://www.startribune.com/in-parkinsons-fight-medtronics-first-in-the-world-adaptive-therapy-feature-wins-fda-approval/601227480" target="_blank" style="text-decoration: none; color: #0d6efd;">
+      <i class="fas fa-newspaper fa-2x"></i><br>Star Tribune
+    </a>
+    <a href="https://time.com/7260870/deep-brain-stimulation-parkinsons-disease/" target="_blank" style="text-decoration: none; color: #dc3545;">
+      <i class="fas fa-globe fa-2x"></i><br>TIME Magazine
+    </a>
+    <a href="https://www.neurologylive.com/view/fda-approval-adaptive-deep-brain-stimulation-medtronic" target="_blank" style="text-decoration: none; color: #198754;">
+      <i class="fas fa-brain fa-2x"></i><br>NeurologyLive
+    </a>
+    <a href="https://indiamedtoday.com/medtronic-launches-sensight-directional-lead-system-for-dbs-therapy/" target="_blank" style="text-decoration: none; color: #6f42c1;">
+      <i class="fas fa-notes-medical fa-2x"></i><br>IndiaMedToday
+    </a>
+    <a href="https://www.mpo-mag.com/breaking-news/fda-approves-medtronics-sensight-directional-lead-system-for-dbs/" target="_blank" style="text-decoration: none; color: #fd7e14;">
+      <i class="fas fa-microscope fa-2x"></i><br>MPO Magazine
+    </a>
   </div>
+</section>
+
+</div>
 
   <footer>
     &copy; 2025 Karan Chitkara. All rights reserved.
