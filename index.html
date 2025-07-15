@@ -242,59 +242,62 @@ html {
 }
 
 .hero-header {
-  background-image: url('background.png'); /* Make sure the image is in the same folder as your HTML file */
+  position: relative;
+  background-image: url('Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 60px 20px;
   text-align: center;
   color: white;
-  position: relative;
+  overflow: hidden;
 }
 
-/* Optional: dark overlay to improve text readability */
+/* Stronger dark overlay */
 .hero-header::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6); /* darker for better contrast */
+  backdrop-filter: blur(2px); /* slight blur if supported */
   z-index: 0;
 }
 
 .header-content {
   position: relative;
   z-index: 1;
-}
-
-.header-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
 
-.profile-img {
-  width: 120px;
-  height: 140px; /* give more vertical space */
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
+/* Style the text to pop */
 .hero-header h1 {
   font-size: 2em;
-  color: #0a2a66;
+  color: white;
   margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 .hero-header p {
-  color: #555;
+  color: #e0e0e0;
   font-size: 1.05em;
   max-width: 500px;
   margin: 0 auto;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
+/* Add a border or shadow to profile image */
+.profile-img {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  border: 3px solid white;
+}
 </style>
 </head>
 <body>
