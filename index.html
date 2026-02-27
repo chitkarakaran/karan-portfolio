@@ -652,6 +652,37 @@
 
   .timeline-text strong { color: var(--text-heading); }
 
+  .timeline-item.promotion::before {
+    background: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .timeline-item.promotion .timeline-year {
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .timeline-item.promotion .timeline-text {
+    border-color: rgba(217, 119, 6, 0.2);
+    background: linear-gradient(135deg, #fffbeb, #fff);
+  }
+
+  .promo-badge {
+    display: inline-block;
+    background: var(--gradient-gold);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
   /* MEDIA */
   .media-grid {
     display: grid;
@@ -688,6 +719,47 @@
   .media-card span {
     font-size: 0.9rem;
     font-weight: 500;
+  }
+
+  /* HOBBIES */
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .hobby-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .hobby-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(37, 99, 235, 0.12);
+  }
+
+  .hobby-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+
+  .hobby-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+  }
+
+  .hobby-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
   }
 
   /* CONTACT */
@@ -849,7 +921,7 @@
 <div class="stats-bar fade-up">
   <div class="stats-grid">
     <div class="stat-item">
-      <div class="stat-number">11+</div>
+      <div class="stat-number">12+</div>
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-item">
@@ -1065,8 +1137,12 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-year">2025</div>
+        <div class="timeline-year">Present</div>
         <div class="timeline-text">Leading next-generation project with BLE, cybersecurity, modular architecture, and cross-platform code reuse.</div>
+      </div>
+      <div class="timeline-item promotion">
+        <div class="timeline-year"><i class="fas fa-arrow-up"></i> 2025</div>
+        <div class="timeline-text">Promoted to <strong>Sr. Principal Software Engineer</strong> <span class="promo-badge">Promotion</span></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2024</div>
@@ -1076,9 +1152,13 @@
         <div class="timeline-year">2023</div>
         <div class="timeline-text">Global software lead for <strong>Adaptive Deep Brain Stimulation (aDBS)</strong>, world's first closed-loop DBS system.</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2021</div>
-        <div class="timeline-text">Led software development for FDA-approved <strong>SenSight Directional Lead System</strong>.</div>
+      <div class="timeline-item promotion">
+        <div class="timeline-year"><i class="fas fa-arrow-up"></i> 2021</div>
+        <div class="timeline-text">Promoted to <strong>Principal Software Engineer</strong> &mdash; Led software development for FDA-approved <strong>SenSight Directional Lead System</strong>. <span class="promo-badge">Promotion</span></div>
+      </div>
+      <div class="timeline-item promotion">
+        <div class="timeline-year"><i class="fas fa-arrow-up"></i> 2018</div>
+        <div class="timeline-text">Promoted to <strong>Senior Software Engineer</strong> &mdash; Architected cross-therapy mobile communication platform. <span class="promo-badge">Promotion</span></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2015</div>
@@ -1135,6 +1215,43 @@
     </div>
   </section>
 
+  <hr class="divider">
+
+  <!-- BEYOND WORK -->
+  <section id="beyond" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-heart"></i> Off the Clock</div>
+      <h2 class="section-title">Beyond Work</h2>
+    </div>
+    <div class="hobbies-grid">
+      <div class="hobby-card">
+        <div class="hobby-icon">&#127758;</div>
+        <h3>Travelling</h3>
+        <p>Exploring new cultures, cities, and landscapes around the world.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#127860;</div>
+        <h3>Food</h3>
+        <p>Discovering local cuisines and hidden culinary gems wherever I go.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#128664;</div>
+        <h3>BMW Enthusiast</h3>
+        <p>Passionate about the driving experience, engineering, and the Ultimate Driving Machine.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#128739;</div>
+        <h3>Road Trips</h3>
+        <p>Long drives, scenic routes, and the freedom of the open road.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#9961;</div>
+        <h3>Anime</h3>
+        <p>From epic shonen arcs to thought-provoking stories, always watching.</p>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <!-- CONTACT -->
@@ -1150,7 +1267,7 @@
 </section>
 
 <footer>
-  &copy; 2025 Karan Chitkara. All rights reserved.
+  &copy; 2026 Karan Chitkara. All rights reserved.
 </footer>
 
 <script>
