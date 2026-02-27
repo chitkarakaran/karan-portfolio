@@ -721,6 +721,186 @@
     font-weight: 500;
   }
 
+  /* IMPACT */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .impact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(37, 99, 235, 0.12);
+  }
+
+  .impact-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .impact-accomplished {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .impact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .impact-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .impact-tag {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  .impact-tag.measured {
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary);
+  }
+
+  .impact-tag.by-doing {
+    background: rgba(8, 145, 178, 0.08);
+    color: var(--accent);
+  }
+
+  .impact-detail {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    .impact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* AI SECTION */
+  .ai-philosophy {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-philosophy::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+  }
+
+  .ai-philosophy blockquote {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-heading);
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--primary);
+  }
+
+  .ai-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .ai-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .ai-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(37, 99, 235, 0.12);
+  }
+
+  .ai-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  .ai-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+  }
+
+  .ai-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .ai-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .ai-tool-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
   /* HOBBIES */
   .hobbies-grid {
     display: grid;
@@ -876,8 +1056,8 @@
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#resume">Resume</a>
-      <a href="#skills">Skills</a>
       <a href="#patents">Patents</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
       <a href="#timeline">Timeline</a>
@@ -961,6 +1141,44 @@
 
   <hr class="divider">
 
+  <!-- PATENTS -->
+  <section id="patents" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-lightbulb"></i> Intellectual Property</div>
+      <h2 class="section-title">Patents</h2>
+      <p class="section-subtitle">Granted and pending patents advancing deep brain stimulation technology.</p>
+    </div>
+    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <a href="https://patents.google.com/patent/US12144637B2/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">US12144637B2</div>
+        <div class="patent-name">Brain Stimulation and Sensing</div>
+        <span class="badge-tag">Cited by Neural Dynamics Technologies Inc.</span>
+      </a>
+      <a href="https://patents.google.com/patent/US11986663B2/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">US11986663B2</div>
+        <div class="patent-name">Offline Session Review & Programming</div>
+        <span class="badge-tag">Used in Percept Platform</span>
+      </a>
+      <a href="https://patents.google.com/patent/US11571576B2/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">US11571576B2</div>
+        <div class="patent-name">Adaptive Brain Signal Processing</div>
+        <span class="badge-tag">Cited by Stanford</span>
+      </a>
+      <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">WO2025029593A1</div>
+        <div class="patent-name">Electrode Signal Visualization UI</div>
+        <span class="badge-tag">Filed 2025 &middot; Pending</span>
+      </a>
+      <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">WO2025029591A1</div>
+        <div class="patent-name">Electrode Ranking Automation</div>
+        <span class="badge-tag">Filed 2025 &middot; Pending</span>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
   <!-- SKILLS -->
   <section id="skills" class="fade-up">
     <div class="section-header">
@@ -1020,44 +1238,6 @@
           <span class="skill-tag">Test Automation</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- PATENTS -->
-  <section id="patents" class="fade-up">
-    <div class="section-header">
-      <div class="section-label"><i class="fas fa-lightbulb"></i> Intellectual Property</div>
-      <h2 class="section-title">Patents</h2>
-      <p class="section-subtitle">Granted and pending patents advancing deep brain stimulation technology.</p>
-    </div>
-    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-      <a href="https://patents.google.com/patent/US12144637B2/en" target="_blank" class="card patent-grid-card">
-        <div class="patent-number">US12144637B2</div>
-        <div class="patent-name">Brain Stimulation and Sensing</div>
-        <span class="badge-tag">Cited by Neural Dynamics Technologies Inc.</span>
-      </a>
-      <a href="https://patents.google.com/patent/US11986663B2/en" target="_blank" class="card patent-grid-card">
-        <div class="patent-number">US11986663B2</div>
-        <div class="patent-name">Offline Session Review & Programming</div>
-        <span class="badge-tag">Used in Percept Platform</span>
-      </a>
-      <a href="https://patents.google.com/patent/US11571576B2/en" target="_blank" class="card patent-grid-card">
-        <div class="patent-number">US11571576B2</div>
-        <div class="patent-name">Adaptive Brain Signal Processing</div>
-        <span class="badge-tag">Cited by Stanford</span>
-      </a>
-      <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank" class="card patent-grid-card">
-        <div class="patent-number">WO2025029593A1</div>
-        <div class="patent-name">Electrode Signal Visualization UI</div>
-        <span class="badge-tag">Filed 2025 &middot; Pending</span>
-      </a>
-      <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank" class="card patent-grid-card">
-        <div class="patent-number">WO2025029591A1</div>
-        <div class="patent-name">Electrode Ranking Automation</div>
-        <span class="badge-tag">Filed 2025 &middot; Pending</span>
-      </a>
     </div>
   </section>
 
@@ -1123,6 +1303,85 @@
         </div>
         <h3>Patent Recognition Awards</h3>
         <p>Formal recognition for multiple granted U.S. patents and international applications in neurostimulation software.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- IMPACT -->
+  <section id="impact" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-chart-line"></i> Results</div>
+      <h2 class="section-title">Measurable Impact</h2>
+      <p class="section-subtitle">Quantifiable outcomes from architecting and leading software systems at scale.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-accomplished">Slashed validation cycles from months to days</div>
+        <div class="impact-row">
+          <span class="impact-tag measured">Measured by</span>
+          <span class="impact-detail">Regulatory approval timelines accelerated across multiple global markets (FDA, TUV, NMPA)</span>
+        </div>
+        <div class="impact-row">
+          <span class="impact-tag by-doing">By doing</span>
+          <span class="impact-detail">Building automation frameworks that analyze 17M+ lines of code and execute 20K+ test cases</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-accomplished">Reduced manual testing effort by 90%</div>
+        <div class="impact-row">
+          <span class="impact-tag measured">Measured by</span>
+          <span class="impact-detail">20,000+ test cases now run automatically, replacing months of manual validation work</span>
+        </div>
+        <div class="impact-row">
+          <span class="impact-tag by-doing">By doing</span>
+          <span class="impact-detail">Developing the Automation Runner Tool with integrated requirements tracking for regulatory audits</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-accomplished">Saved clinicians hours of programming per patient</div>
+        <div class="impact-row">
+          <span class="impact-tag measured">Measured by</span>
+          <span class="impact-detail">Eliminated manual trial-and-error electrode selection during DBS therapy sessions</span>
+        </div>
+        <div class="impact-row">
+          <span class="impact-tag by-doing">By doing</span>
+          <span class="impact-detail">Leading the Electrode Identifier feature that automates electrode ranking and stimulation configuration</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-accomplished">Unified mobile codebase across iOS & Android</div>
+        <div class="impact-row">
+          <span class="impact-tag measured">Measured by</span>
+          <span class="impact-detail">Reduced code duplication and cut onboarding time for new therapy teams</span>
+        </div>
+        <div class="impact-row">
+          <span class="impact-tag by-doing">By doing</span>
+          <span class="impact-detail">Architecting a Kotlin Multiplatform (KMM) framework with shared business logic and reusable SDKs</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-accomplished">Secured implantable device communication end-to-end</div>
+        <div class="impact-row">
+          <span class="impact-tag measured">Measured by</span>
+          <span class="impact-detail">Full HIPAA & GDPR compliance for patient data across BLE-enabled neurostimulator devices</span>
+        </div>
+        <div class="impact-row">
+          <span class="impact-tag by-doing">By doing</span>
+          <span class="impact-detail">Implementing proprietary cryptographic encryption and tamper-proof provisioning protocols</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-accomplished">Delivered world's first adaptive DBS to global markets</div>
+        <div class="impact-row">
+          <span class="impact-tag measured">Measured by</span>
+          <span class="impact-detail">FDA clearance achieved, recognized as TIME Best Invention 2025, deployed to patients worldwide</span>
+        </div>
+        <div class="impact-row">
+          <span class="impact-tag by-doing">By doing</span>
+          <span class="impact-detail">Serving as global software lead, driving architecture, cross-team alignment, and verification frameworks</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1217,6 +1476,74 @@
 
   <hr class="divider">
 
+  <!-- AI -->
+  <section id="ai" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-robot"></i> Artificial Intelligence</div>
+      <h2 class="section-title">How I Use AI</h2>
+      <p class="section-subtitle">Leveraging AI as a force multiplier across engineering, innovation, and regulated product development.</p>
+    </div>
+
+    <div class="ai-philosophy">
+      <blockquote>In safety-critical, regulated domains, AI doesn't replace human judgment &mdash; it amplifies it. I use AI to move faster, think broader, and ship better software while keeping the engineer firmly in the loop.</blockquote>
+    </div>
+
+    <div class="ai-cards-grid">
+      <div class="ai-card">
+        <div class="ai-card-icon" style="background: rgba(37, 99, 235, 0.08); color: var(--primary);">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>AI-Augmented Development</h3>
+        <p>AI-powered coding assistants accelerate my daily workflow &mdash; from writing and refactoring code, to generating unit tests, drafting documentation, and reviewing architecture decisions in real-time.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Cursor</span>
+          <span class="ai-tool-tag">GitHub Copilot</span>
+          <span class="ai-tool-tag">ChatGPT</span>
+          <span class="ai-tool-tag">Claude</span>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon" style="background: rgba(8, 145, 178, 0.08); color: var(--accent);">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>AI in Medical Device Innovation</h3>
+        <p>Exploring how AI and ML can transform DBS therapy &mdash; from predicting tremor onset using neural signal patterns, to personalizing stimulation parameters and automating electrode selection for optimal patient outcomes.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon" style="background: rgba(217, 119, 6, 0.08); color: var(--gold);">
+          <i class="fas fa-file-shield"></i>
+        </div>
+        <h3>AI for Regulatory Acceleration</h3>
+        <p>Using AI to streamline requirements traceability, generate and validate test cases, and draft regulatory documentation &mdash; compressing compliance workflows that traditionally take months into days.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon" style="background: rgba(16, 185, 129, 0.08); color: #10b981;">
+          <i class="fas fa-language"></i>
+        </div>
+        <h3>NLP Research Background</h3>
+        <p>My master's research at NDSU focused on building an interactive visualization system for opinion mining and sentiment analysis &mdash; applying NLP to extract, categorize, and dynamically visualize multi-layered sentiment data from large-scale text.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Sentiment Analysis</span>
+          <span class="ai-tool-tag">Text Mining</span>
+          <span class="ai-tool-tag">D3.js Visualization</span>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon" style="background: rgba(139, 92, 246, 0.08); color: #8b5cf6;">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>AI as a Force Multiplier</h3>
+        <p>In regulated environments where every line of code must be traceable and every decision auditable, AI serves as a thinking partner &mdash; expanding what a single engineer can accomplish while keeping safety, quality, and compliance non-negotiable.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
   <!-- BEYOND WORK -->
   <section id="beyond" class="fade-up">
     <div class="section-header">
@@ -1235,7 +1562,7 @@
         <p>Discovering local cuisines and hidden culinary gems wherever I go.</p>
       </div>
       <div class="hobby-card">
-        <div class="hobby-icon">&#128664;</div>
+        <div class="hobby-icon"><svg width="44" height="44" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><circle cx="48" cy="48" r="47" fill="#0066B1" stroke="#000" stroke-width="2"/><circle cx="48" cy="48" r="40" fill="#fff"/><circle cx="48" cy="48" r="38" fill="none" stroke="#000" stroke-width="1"/><path d="M48 10 A38 38 0 0 1 86 48 L48 48 Z" fill="#0066B1"/><path d="M10 48 A38 38 0 0 1 48 86 L48 48 Z" fill="#0066B1"/><path d="M48 10 A38 38 0 0 0 10 48 L48 48 Z" fill="#fff"/><path d="M86 48 A38 38 0 0 0 48 86 L48 48 Z" fill="#fff"/><circle cx="48" cy="48" r="38" fill="none" stroke="#000" stroke-width="1.5"/></svg></div>
         <h3>BMW Enthusiast</h3>
         <p>Passionate about the driving experience, engineering, and the Ultimate Driving Machine.</p>
       </div>
