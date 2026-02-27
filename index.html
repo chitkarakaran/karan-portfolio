@@ -3,507 +3,1177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Karan Chitkara | Medical Device Software Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-  
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent: #0891b2;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --text: #334155;
+    --text-muted: #64748b;
+    --text-heading: #0f172a;
+    --gold: #d97706;
+    --gold-light: #f59e0b;
+    --red-time: #e11d48;
+    --border: rgba(15, 23, 42, 0.08);
+    --gradient-primary: linear-gradient(135deg, #2563eb, #0891b2);
+    --gradient-gold: linear-gradient(135deg, #d97706, #ea580c);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
   body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f8f9fa;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
 
-  nav {
-    text-align: center;
-    padding: 10px;
+  /* NAV */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
   }
-  nav a {
-    margin: 0 10px;
-    color: #0d6efd;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .container {
-    max-width: 900px;
+
+  .nav-inner {
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 64px;
   }
-  h2 {
-    color: #0d6efd;
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-heading);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px;
+    position: absolute;
+    right: 24px;
   }
-  .patent, .award, .project, .press {
-    background-color: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-left: 5px solid #0d6efd;
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
   }
-  footer {
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.06);
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: #6c757d;
+    overflow: hidden;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  /* RESPONSIVE STYLES */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,23,42,0.75) 0%, rgba(15,23,42,0.9) 100%);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 120px 24px 80px;
+    max-width: 700px;
+  }
+
+  .hero-img {
+    width: 140px;
+    height: 160px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 20px;
+    border: 3px solid rgba(255,255,255,0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .hero .tagline {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    font-weight: 400;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary, .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--gradient-primary);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-outline:hover {
+    border-color: #fff;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-dark {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline-dark:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  /* TIME BEST INVENTIONS BANNER */
+  .time-banner {
+    position: relative;
+    max-width: 1100px;
+    margin: -60px auto 0;
+    padding: 0 24px;
+    z-index: 10;
+  }
+
+  .time-banner-inner {
+    background: linear-gradient(135deg, #fffbeb 0%, #fff7ed 100%);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    box-shadow: 0 0 40px rgba(217, 119, 6, 0.05), var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+  }
+
+  .time-banner-inner:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 0 60px rgba(217, 119, 6, 0.06), 0 25px 50px rgba(0, 0, 0, 0.08);
+  }
+
+  .time-banner-inner::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .time-badge {
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(217, 119, 6, 0.2);
+  }
+
+  .time-badge i {
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  .time-text {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .time-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .time-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .time-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .time-desc strong {
+    color: var(--text-heading);
+  }
+
+  .time-arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(217, 119, 6, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    transition: all 0.3s;
+  }
+
+  .time-banner-inner:hover .time-arrow {
+    background: rgba(217, 119, 6, 0.18);
+    transform: translateX(4px);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding: 0 24px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 28px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all 0.3s;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .skill-category h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-heading);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-category h3 i {
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.04);
+    transform: translateY(-1px);
+  }
+
   @media (max-width: 768px) {
-    nav {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    nav a {
-      font-size: 1rem;
-      padding: 6px 0;
-    }
-
-    .container {
-      padding: 15px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    img.profile-photo {
-      width: 150px;
-      height: 150px;
-      margin: 10px auto;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-    }
-
-    p, li {
-      font-size: 0.95rem;
-    }
+    .stat-number { font-size: 1.8rem; }
   }
-  .nav-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: auto;
-}
 
-.logo {
-  display: none;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px;
-}
-#navLinks {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
 
-@media (max-width: 768px) {
-  .logo {
+    .stat-item { padding: 20px 12px; }
+    .stat-number { font-size: 1.5rem; }
+  }
+
+  /* SECTIONS */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    max-width: 600px;
+  }
+
+  .divider {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    border-color: rgba(37, 99, 235, 0.12);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .cards-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  /* RESUME */
+  .resume-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .resume-content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  /* PATENTS */
+  .patent-number {
+    font-family: 'Inter', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-heading);
+  }
+
+  .patent-name {
+    color: var(--text);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .badge-tag {
+    display: inline-block;
+    background: rgba(8, 145, 178, 0.08);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+
+  .patent-grid-card {
+    text-decoration: none;
+    color: inherit;
     display: block;
   }
 
-  #navLinks {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
+  .patent-grid-card .patent-name {
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 
-  #navLinks.show {
+  .patent-grid-card:hover .patent-number {
+    color: var(--primary);
+  }
+
+  /* PROJECTS */
+  .project-card .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
   }
-}
-  .patent-card {
-  background-color: white;
-  border-left: 5px solid #0d6efd;
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
 
-.badge {
-  display: inline-block;
-  background-color: #e8f0fe;
-  color: #0d6efd;
-  font-size: 0.8em;
-  padding: 2px 8px;
-  margin-left: 8px;
-  border-radius: 4px;
-}
+  .project-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+  }
 
-details summary {
-  cursor: pointer;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #084298;
-}
+  .project-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
 
-details p {
-  margin-top: 5px;
-  color: #333;
-}
-#timeline {
-  margin-top: 40px;
-  padding: 0 20px; /* Ensures consistent left/right padding */
-}
+  
 
-.timeline {
-  position: relative;
-  border-left: 3px solid #0d6efd;
-  padding-left: 30px;
-  margin-left: 0; /* Keep aligned with rest of content */
-}
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
 
-.timeline-item {
-  margin-bottom: 25px;
-  position: relative;
-}
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary), var(--accent), transparent);
+  }
 
-.timeline-date {
-  font-weight: bold;
-  color: #0d6efd;
-  position: absolute;
-  left: -80px; /* Slightly pulled out from vertical line */
-  width: 70px;
-  text-align: right;
-}
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
 
-.timeline-content {
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-#featured {
-  margin-top: 40px;
-  padding: 20px;
-  text-align: center;
-}
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary);
+  }
 
-.media-logos a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  font-size: 0.95em;
-  color: #0d6efd;
-  transition: transform 0.2s ease, color 0.2s ease;
-  text-decoration: none;
-}
+  .timeline-year {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
 
-.media-logos a i {
-  margin-bottom: 8px;
-}
+  .timeline-text {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: all 0.3s;
+  }
 
-.media-logos a:hover {
-  transform: scale(1.05);
-  color: #0a58ca;
-}
-#contact {
-  margin-top: 40px;
-  padding: 20px;
-  text-align: center;
-}
+  .timeline-text:hover {
+    border-color: rgba(37, 99, 235, 0.12);
+    transform: translateX(6px);
+    box-shadow: var(--shadow-card);
+  }
 
-.contact-links {
-  margin-top: 15px;
-}
+  .timeline-text strong { color: var(--text-heading); }
 
-.contact-links .btn {
-  display: inline-block;
-  margin: 8px;
-  padding: 10px 18px;
-  background-color: #0d6efd;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
+  /* MEDIA */
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
 
-.contact-links .btn:hover {
-  background-color: #0b5ed7;
-}
-html {
-  scroll-behavior: smooth;
-}
+  .media-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 
-.hero-header {
-  position: relative;
-  background-image: url('background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 60px 20px;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-}
+  .media-card:hover {
+    border-color: rgba(37, 99, 235, 0.12);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
 
-/* Stronger dark overlay */
-.hero-header::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6); /* darker for better contrast */
-  backdrop-filter: blur(2px); /* slight blur if supported */
-  z-index: 0;
-}
+  .media-card i {
+    font-size: 1.8rem;
+    color: var(--primary);
+  }
 
-.header-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
+  .media-card span {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
 
-/* Style the text to pop */
-.hero-header h1 {
-  font-size: 2em;
-  color: white;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
+  /* CONTACT */
+  .contact-section {
+    text-align: center;
+    padding: 100px 0;
+  }
 
-.hero-header p {
-  color: #e0e0e0;
-  font-size: 1.05em;
-  max-width: 500px;
-  margin: 0 auto;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
+  .contact-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
 
-/* Add a border or shadow to profile image */
-.profile-img {
-  width: 120px;
-  height: 140px;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-  border: 3px solid white;
-}
+  .contact-section p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 0 auto 32px;
+  }
+
+  .contact-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hamburger { display: block; }
+
+    .nav-inner {
+      justify-content: space-between;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.show { display: flex; }
+
+    .nav-links a {
+      padding: 12px 16px;
+      font-size: 1rem;
+    }
+
+    .hero h1 { font-size: 2.2rem; }
+    .hero .tagline { font-size: 1rem; }
+
+    .time-banner { margin-top: -40px; }
+
+    .time-banner-inner {
+      flex-direction: column;
+      text-align: center;
+      padding: 28px 24px;
+      gap: 20px;
+    }
+
+    .time-arrow { display: none; }
+
+    .section-title { font-size: 1.6rem; }
+
+    .media-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-section .section-title { font-size: 1.8rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 1.8rem; }
+    .media-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-  <header class="hero-header">
-  <div class="header-content">
-    <img src="karan.png" alt="Karan Chitkara" class="profile-img" />
-    <div>
-      <h1>Karan Chitkara</h1>
-      <p>Sr. Principal Software Engineer · Medical Devices · Cybersecurity · Patented Innovator</p>
-    </div>
-  </div>
-</header>
 
-<nav>
-  <div class="nav-container">
-    <div class="logo">☰</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <button class="hamburger" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
     <div class="nav-links" id="navLinks">
       <a href="#resume">Resume</a>
+      <a href="#skills">Skills</a>
       <a href="#patents">Patents</a>
       <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
-      <a href="#timeline">Career Timeline</a>
+      <a href="#timeline">Timeline</a>
       <a href="#featured">Media</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
-  <div class="container">
-    <section id="resume">
-      <h2>📄 Resume</h2>
-      <p><a href="Resume_Karan.pdf" target="_blank">Download PDF</a> or view summary below.</p>
-      <p>Medtronic software architect behind award-winning neurostimulation systems, a pioneer in DBS therapy programming logic, and inventor of multiple cited patents powering next-generation adaptive medical devices.</p>
-    </section>
-
-    <section id="patents">
-  <h2>🥇 Patents</h2>
-
-  <div class="patent-card">
-    <strong>US12144637B2</strong> — Brain Stimulation and Sensing  
-    <span class="badge">Cited by Neural Dynamics Technologies Inc.</span>
-    <details>
-      <summary>View Details</summary>
-      <p>Real-time signal-stimulation alignment UI for DBS optimization. Enables visualization of neural signals and therapy events to support adaptive programming decisions.</p>
-      <a href="https://patents.google.com/patent/US12144637B2/en" target="_blank">[View Patent]</a>
-    </details>
-  </div>
-
-  <div class="patent-card">
-    <strong>US11986663B2</strong> — Offline Session Review & Programming  
-    <span class="badge">Used in Percept Platform</span>
-    <details>
-      <summary>View Details</summary>
-      <p>Allows clinicians to analyze therapy data without being connected to the implant. Enhances workflow efficiency and post-session review accuracy.</p>
-      <a href="https://patents.google.com/patent/US11986663B2/en" target="_blank">[View Patent]</a>
-    </details>
-  </div>
-
-  <div class="patent-card">
-    <strong>US11571576B2</strong> — Adaptive Brain Signal Processing  
-    <span class="badge">Cited by Stanford</span>
-    <details>
-      <summary>View Details</summary>
-      <p>Introduced threshold-based signal interpretation logic for automatic DBS adjustments. A foundational contribution to closed-loop therapy systems.</p>
-      <a href="https://patents.google.com/patent/US11571576B2/en" target="_blank">[View Patent]</a>
-    </details>
-  </div>
-
-  <div class="patent-card">
-    <strong>WO2025029593A1</strong> — Electrode Signal Visualization UI (Pending)  
-    <span class="badge">Filed 2025</span>
-    <details>
-      <summary>View Details</summary>
-      <p>Interactive interface that displays signal strength per electrode pair to aid programming decisions during and after DBS sessions.</p>
-      <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank">[View Patent]</a>
-    </details>
-  </div>
-
-  <div class="patent-card">
-    <strong>WO2025029591A1</strong> — Electrode Ranking Automation (Pending)  
-    <span class="badge">Filed 2025</span>
-    <details>
-      <summary>View Details</summary>
-      <p>Introduces ranking engine for identifying optimal electrodes based on signal quality metrics such as noise, amplitude, and stability.</p>
-      <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank">[View Patent]</a>
-    </details>
-  </div>
-</section>
-
-
-<section id="projects">
-  <h2>📁 Major Projects</h2>
-  <div class="project">
-    <strong>Adaptive DBS (aDBS)</strong> – Global software lead for the first FDA-cleared closed-loop neurostimulator.
-  </div>
-  <div class="project">
-    <strong>Sensight Leads</strong> – Architected software programming stack for the world’s first directional sensing lead system.
-  </div>
-  <div class="project">
-    <strong>External Neurostimulator (ENS)</strong> – Currently leading the redesign of Medtronic's ENS platform with modern BLE connectivity, cyber-secure provisioning, and code reuse across global portfolios.
-  </div>
-</section>
-
-<section id="awards">
-  <h2>🏆 Awards – Recognition for Excellence in Software Engineering</h2>
-
-  <div class="award">
-    <h2>1. Technical Contributor of the Year – Medtronic</h2>
-    <p class="text-gray-700">
-      Awarded to one standout engineer across the entire neurostimulation organization for making sustained, high-impact technical contributions that advanced core product development. Recognized for deep expertise in software architecture, programming, and signal processing logic used across multiple FDA-cleared platforms.
-    </p>
-  </div>
-
-  <div class="award">
-    <h2>2. SenSight Award – Medtronic</h2>
-    <p class="text-gray-700">
-      Presented in recognition of exceptional contributions to the global release of the <strong>SenSight Directional Lead System</strong>. This award is selectively given to individuals who played a critical role in delivering Medtronic's next-generation deep brain stimulation solution to the worldwide market.
-    </p>
-  </div>
-
-  <div class="award">
-    <h2>3. Patent Recognition Awards – Medtronic</h2>
-    <p class="text-gray-700">
-      Received formal recognition from Medtronic’s intellectual property team for multiple granted U.S. patents and filed international applications, demonstrating a pattern of innovation in neurostimulation software and signal-guided therapy platforms.
-    </p>
-  </div>
-</section>
-
-<section id="timeline">
-  <h2>📈 Career Timeline</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">2025</div>
-      <div class="timeline-content">📲 Leading next-generation project with BLE, cybersecurity, modular architecture, and cross-platform code reuse</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2024</div>
-      <div class="timeline-content">💡 Inventor of multiple international patent applications advancing automated programming and signal visualization</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2023</div>
-      <div class="timeline-content">🧠 Global software lead for <strong>Adaptive Deep Brain Stimulation (aDBS)</strong>, world’s first closed-loop DBS system</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2021</div>
-      <div class="timeline-content">🏆 Led software development for FDA-approved <strong>SenSight Directional Lead System</strong></div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2015</div>
-      <div class="timeline-content">🚀 Joined <strong>Medtronic</strong> as Software Engineer in the Neurostimulation Division</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2014</div>
-      <div class="timeline-content">💼 Joined <strong>Open Access Technology International, Inc. (OATI)</strong> as Software Engineer working on large-scale web-based energy systems</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2014</div>
-      <div class="timeline-content">🎓 Earned Master’s degree in Computer Software Engineering from <strong>North Dakota State University</strong></div>
-    </div>
-     <div class="timeline-item">
-      <div class="timeline-date">2012</div>
-      <div class="timeline-content">🎓 Earned Bachelor's degree in Computer Science from <strong>North Dakota State University</strong></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="karan.png" alt="Karan Chitkara" class="hero-img" />
+    <h1>Karan Chitkara</h1>
+    <p class="tagline">Sr. Principal Software Engineer specializing in medical devices, cybersecurity, and patented neurotech innovation.</p>
+    <div class="hero-cta">
+      <a href="Resume_Karan.pdf" class="btn-primary" target="_blank"><i class="fas fa-file-arrow-down"></i> Resume</a>
+      <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
     </div>
   </div>
 </section>
 
-
-<section id="featured">
-  <h2>🌍 Work Featured In</h2>
-  <div class="media-logos" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; text-align: center; margin-top: 20px;">
-    <a href="https://www.startribune.com/in-parkinsons-fight-medtronics-first-in-the-world-adaptive-therapy-feature-wins-fda-approval/601227480" target="_blank" style="text-decoration: none; color: #0d6efd;">
-      <i class="fas fa-newspaper fa-2x"></i><br>Star Tribune
-    </a>
-    <a href="https://time.com/7260870/deep-brain-stimulation-parkinsons-disease/" target="_blank" style="text-decoration: none; color: #dc3545;">
-      <i class="fas fa-globe fa-2x"></i><br>TIME Magazine
-    </a>
-    <a href="https://www.neurologylive.com/view/fda-approves-medtronic-adaptive-deep-brain-stimulation-parkinson-disease" target="_blank" style="text-decoration: none; color: #198754;">
-      <i class="fas fa-brain fa-2x"></i><br>NeurologyLive
-    </a>
-    <a href="https://indiamedtoday.com/medtronic-launches-sensight-directional-lead-system-for-dbs-therapy/" target="_blank" style="text-decoration: none; color: #6f42c1;">
-      <i class="fas fa-notes-medical fa-2x"></i><br>IndiaMedToday
-    </a>
-    <a href="https://www.mpo-mag.com/breaking-news/fda-approves-medtronics-sensight-directional-lead-system-for-dbs/" target="_blank" style="text-decoration: none; color: #fd7e14;">
-      <i class="fas fa-microscope fa-2x"></i><br>MPO Magazine
-    </a>
-  </div>
-</section>
+<!-- TIME BEST INVENTIONS BANNER -->
+<div class="time-banner fade-up">
+  <a href="https://time.com/collections/best-inventions-2025/7318446/medtronic-brainsense-adbs/" target="_blank" class="time-banner-inner">
+    <div class="time-badge">
+      <i class="fas fa-trophy"></i>
+    </div>
+    <div class="time-text">
+      <div class="time-label"><i class="fas fa-star"></i> TIME Best Inventions 2025</div>
+      <div class="time-title">Software Dev Lead &mdash; Medtronic BrainSense aDBS</div>
+      <div class="time-desc">Led software development of the world's first adaptive deep brain stimulation system, recognized by <strong>TIME Magazine</strong> as one of the <strong>Best Inventions of 2025</strong> for controlling Parkinson's tremors.</div>
+    </div>
+    <div class="time-arrow">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+  </a>
 </div>
-<section id="contact">
-  <h2>📬 Let’s Connect</h2>
-  <p>Feel free to reach out for collaborations, professional inquiries, or a conversation about innovation in medical device software.</p>
-  <div class="contact-links">
-    <a href="mailto:k@chitkara.io" class="btn"><i class="fas fa-envelope"></i> Email</a>
-    <a href="https://www.linkedin.com/in/karan-chitkara-332384b2" class="btn" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+
+<!-- BY THE NUMBERS -->
+<div class="stats-bar fade-up">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">11+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Patents</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1</div>
+      <div class="stat-label">Active Trade Secret</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">2</div>
+      <div class="stat-label">New Patents in Pipeline</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- RESUME -->
+  <section id="resume" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-file-lines"></i> Resume</div>
+      <h2 class="section-title">Background & Experience</h2>
+    </div>
+    <div class="card">
+      <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+        Medtronic software architect behind award-winning neurostimulation systems, a pioneer in DBS therapy programming logic, and inventor of multiple cited patents powering next-generation adaptive medical devices.
+      </p>
+      <div style="margin-top: 20px;">
+        <a href="Resume_Karan_elaborated.docx" download class="btn-primary" style="font-size: 0.9rem; padding: 10px 22px;">
+          <i class="fas fa-download"></i> Download Full Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-code"></i> Tech Stack</div>
+      <h2 class="section-title">Skills & Technologies</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category card">
+        <h3><i class="fas fa-terminal"></i> Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Swift</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Kotlin</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">XML</span>
+        </div>
+      </div>
+      <div class="skill-category card">
+        <h3><i class="fas fa-layer-group"></i> Frameworks & Patterns</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">KMM</span>
+          <span class="skill-tag">Bootstrap</span>
+          <span class="skill-tag">Struts</span>
+          <span class="skill-tag">MVVM</span>
+          <span class="skill-tag">MVC</span>
+          <span class="skill-tag">MVP</span>
+          <span class="skill-tag">FLUX</span>
+        </div>
+      </div>
+      <div class="skill-category card">
+        <h3><i class="fas fa-wrench"></i> Tools & Platforms</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Xcode</span>
+          <span class="skill-tag">Android Studio</span>
+          <span class="skill-tag">Visual Studio</span>
+          <span class="skill-tag">IntelliJ</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Eclipse</span>
+        </div>
+      </div>
+      <div class="skill-category card">
+        <h3><i class="fas fa-shield-halved"></i> Domain Expertise</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Medical Device Software</span>
+          <span class="skill-tag">BLE</span>
+          <span class="skill-tag">Cryptography</span>
+          <span class="skill-tag">FDA / TUV / NMPA</span>
+          <span class="skill-tag">HIPAA / GDPR</span>
+          <span class="skill-tag">Deep Brain Stimulation</span>
+          <span class="skill-tag">Natural Language Processing</span>
+          <span class="skill-tag">Test Automation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PATENTS -->
+  <section id="patents" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-lightbulb"></i> Intellectual Property</div>
+      <h2 class="section-title">Patents</h2>
+      <p class="section-subtitle">Granted and pending patents advancing deep brain stimulation technology.</p>
+    </div>
+    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <a href="https://patents.google.com/patent/US12144637B2/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">US12144637B2</div>
+        <div class="patent-name">Brain Stimulation and Sensing</div>
+        <span class="badge-tag">Cited by Neural Dynamics Technologies Inc.</span>
+      </a>
+      <a href="https://patents.google.com/patent/US11986663B2/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">US11986663B2</div>
+        <div class="patent-name">Offline Session Review & Programming</div>
+        <span class="badge-tag">Used in Percept Platform</span>
+      </a>
+      <a href="https://patents.google.com/patent/US11571576B2/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">US11571576B2</div>
+        <div class="patent-name">Adaptive Brain Signal Processing</div>
+        <span class="badge-tag">Cited by Stanford</span>
+      </a>
+      <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">WO2025029593A1</div>
+        <div class="patent-name">Electrode Signal Visualization UI</div>
+        <span class="badge-tag">Filed 2025 &middot; Pending</span>
+      </a>
+      <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank" class="card patent-grid-card">
+        <div class="patent-number">WO2025029591A1</div>
+        <div class="patent-name">Electrode Ranking Automation</div>
+        <span class="badge-tag">Filed 2025 &middot; Pending</span>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-rocket"></i> Engineering</div>
+      <h2 class="section-title">Major Projects</h2>
+    </div>
+    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="card project-card">
+        <div class="card-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>Adaptive DBS (aDBS)</h3>
+        <p>Global software lead for the first FDA-cleared closed-loop neurostimulator &mdash; recognized as a TIME Best Invention 2025.</p>
+      </div>
+      <div class="card project-card">
+        <div class="card-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--accent);">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h3>SenSight Leads</h3>
+        <p>Architected the software programming stack for the world's first directional sensing lead system.</p>
+      </div>
+      <div class="card project-card">
+        <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--gold);">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <h3>External Neurostimulator (ENS)</h3>
+        <p>Leading the redesign of Medtronic's ENS platform with modern BLE connectivity, cyber-secure provisioning, and cross-portfolio code reuse.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- AWARDS -->
+  <section id="awards" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-award"></i> Recognition</div>
+      <h2 class="section-title">Awards</h2>
+    </div>
+    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="card project-card">
+        <div class="card-icon" style="background: rgba(217, 119, 6, 0.1); color: var(--gold);">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>Technical Contributor of the Year</h3>
+        <p>Awarded to one standout engineer across the entire neurostimulation organization for sustained, high-impact technical contributions.</p>
+      </div>
+      <div class="card project-card">
+        <div class="card-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">
+          <i class="fas fa-medal"></i>
+        </div>
+        <h3>SenSight Award</h3>
+        <p>Recognized for exceptional contributions to the global release of the SenSight Directional Lead System.</p>
+      </div>
+      <div class="card project-card">
+        <div class="card-icon" style="background: rgba(8, 145, 178, 0.1); color: var(--accent);">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Patent Recognition Awards</h3>
+        <p>Formal recognition for multiple granted U.S. patents and international applications in neurostimulation software.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-timeline"></i> Journey</div>
+      <h2 class="section-title">Career Timeline</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-text">Leading next-generation project with BLE, cybersecurity, modular architecture, and cross-platform code reuse.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-text">Inventor of multiple international patent applications advancing automated programming and signal visualization.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-text">Global software lead for <strong>Adaptive Deep Brain Stimulation (aDBS)</strong>, world's first closed-loop DBS system.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-text">Led software development for FDA-approved <strong>SenSight Directional Lead System</strong>.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-text">Joined <strong>Medtronic</strong> as Software Engineer in the Neurostimulation Division.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2014</div>
+        <div class="timeline-text">Joined <strong>Open Access Technology International, Inc. (OATI)</strong> as Software Engineer working on large-scale web-based energy systems.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2014</div>
+        <div class="timeline-text">Earned Master's degree in Computer Software Engineering from <strong>North Dakota State University</strong>.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2012</div>
+        <div class="timeline-text">Earned Bachelor's degree in Computer Science from <strong>North Dakota State University</strong>.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- MEDIA -->
+  <section id="featured" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-newspaper"></i> Press</div>
+      <h2 class="section-title">Work Featured In</h2>
+    </div>
+    <div class="media-grid">
+      <a href="https://time.com/collections/best-inventions-2025/7318446/medtronic-brainsense-adbs/" target="_blank" class="media-card">
+        <i class="fas fa-trophy" style="color: var(--gold);"></i>
+        <span>TIME Best Inventions</span>
+      </a>
+      <a href="https://www.startribune.com/in-parkinsons-fight-medtronics-first-in-the-world-adaptive-therapy-feature-wins-fda-approval/601227480" target="_blank" class="media-card">
+        <i class="fas fa-newspaper"></i>
+        <span>Star Tribune</span>
+      </a>
+      <a href="https://time.com/7260870/deep-brain-stimulation-parkinsons-disease/" target="_blank" class="media-card">
+        <i class="fas fa-globe" style="color: var(--red-time);"></i>
+        <span>TIME Magazine</span>
+      </a>
+      <a href="https://www.neurologylive.com/view/fda-approves-medtronic-adaptive-deep-brain-stimulation-parkinson-disease" target="_blank" class="media-card">
+        <i class="fas fa-brain" style="color: #10b981;"></i>
+        <span>NeurologyLive</span>
+      </a>
+      <a href="https://indiamedtoday.com/medtronic-launches-sensight-directional-lead-system-for-dbs-therapy/" target="_blank" class="media-card">
+        <i class="fas fa-notes-medical" style="color: #8b5cf6;"></i>
+        <span>IndiaMedToday</span>
+      </a>
+      <a href="https://www.mpo-mag.com/breaking-news/fda-approves-medtronics-sensight-directional-lead-system-for-dbs/" target="_blank" class="media-card">
+        <i class="fas fa-microscope" style="color: #f97316;"></i>
+        <span>MPO Magazine</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section fade-up">
+  <div class="container">
+    <h2 class="section-title">Let's Connect</h2>
+    <p>Interested in collaborations, professional inquiries, or a conversation about innovation in medical device software.</p>
+    <div class="contact-btns">
+      <a href="mailto:k@chitkara.io" class="btn-primary"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://www.linkedin.com/in/karan-chitkara-332384b2" class="btn-primary btn-outline-dark" target="_blank" style="background: transparent; color: var(--text); border: 1px solid var(--border); box-shadow: none;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
   </div>
 </section>
 
-  <footer>
-    &copy; 2025 Karan Chitkara. All rights reserved.
-  </footer>
-  <script>
-    document.querySelector('.logo').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('show');
+<footer>
+  &copy; 2025 Karan Chitkara. All rights reserved.
+</footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('show');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('show');
     });
-  </script>
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
