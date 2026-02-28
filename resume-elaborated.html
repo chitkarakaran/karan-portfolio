@@ -27,12 +27,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .page {
-      max-width: 8.5in;
-      margin: 0 auto;
-      padding: 0.5in 0.65in;
-    }
-
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
@@ -145,10 +139,88 @@
     .impact-number { font-size: 18pt; font-weight: 700; color: var(--accent); }
     .impact-label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-top: 2px; }
 
+    /* Sidebar Navigation */
+    .sidebar-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      background: #f8fafc;
+      border-right: 1px solid var(--border);
+      padding: 28px 0;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .sidebar-nav .nav-title {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      padding: 0 20px 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      font-size: 9pt;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      color: var(--accent);
+      background: #eef2ff;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a.active {
+      color: var(--accent);
+      font-weight: 600;
+      background: #eef2ff;
+      border-left-color: var(--accent);
+    }
+
+    .sidebar-nav a .nav-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-nav a.active .nav-dot {
+      background: var(--accent);
+      box-shadow: 0 0 0 2px #dbeafe;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.5in 0.65in;
+      margin-left: 220px;
+    }
+
+    @media (max-width: 900px) {
+      .sidebar-nav { display: none; }
+      .page { margin-left: auto; }
+    }
+
     /* Print */
     @media print {
       body { font-size: 10pt; }
-      .page { padding: 0.4in 0.55in; max-width: none; }
+      .sidebar-nav { display: none; }
+      .page { padding: 0.4in 0.55in; max-width: none; margin-left: auto; }
       a { color: var(--text); }
       .patent-card { border-color: #ccc; }
       .impact-item { border-color: #ccc; }
@@ -158,6 +230,20 @@
   </style>
 </head>
 <body>
+
+<!-- SIDEBAR NAVIGATION -->
+<nav class="sidebar-nav">
+  <div class="nav-title">Sections</div>
+  <a href="#summary"><span class="nav-dot"></span>Summary</a>
+  <a href="#skills"><span class="nav-dot"></span>Technical Expertise</a>
+  <a href="#experience"><span class="nav-dot"></span>Experience</a>
+  <a href="#patents"><span class="nav-dot"></span>Patents & IP</a>
+  <a href="#awards"><span class="nav-dot"></span>Awards & Honors</a>
+  <a href="#education"><span class="nav-dot"></span>Education</a>
+  <a href="#research"><span class="nav-dot"></span>Research</a>
+  <a href="#impact"><span class="nav-dot"></span>Impact Summary</a>
+</nav>
+
 <div class="page">
 
   <!-- HEADER -->
@@ -176,7 +262,7 @@
   </header>
 
   <!-- PROFESSIONAL SUMMARY -->
-  <section class="section">
+  <section id="summary" class="section">
     <div class="section-title">Professional Summary</div>
     <p class="summary">
       An accomplished Senior Principal Software Engineer with over 12 years of specialized expertise in safety-critical medical device software development for neurostimulation therapy systems. Inventor on five U.S. and international patents (three granted, two pending) that have introduced transformative advancements in deep brain stimulation technology and have been cited by 37 patent families across the industry. Served as Software Development Lead for the Medtronic Percept Deep Brain Stimulation system, recognized by TIME Magazine as one of the Best Inventions of 2025. Recipient of Medtronic's Technical Contributor of the Year Award (2024), conferred upon fewer than 1% of the company's 95,000+ global workforce. Proven track record of designing scalable architectures, building automation frameworks that reduced validation timelines from months to days, implementing cryptographic security protocols for implantable medical devices, and driving cross-functional collaboration to achieve regulatory clearances across 10+ global markets, including FDA (U.S.), TÜV (EU MDR), NMPA (China), and many more.
@@ -184,7 +270,7 @@
   </section>
 
   <!-- TECHNICAL EXPERTISE -->
-  <section class="section">
+  <section id="skills" class="section">
     <div class="section-title">Technical Expertise</div>
     <table class="skills-table">
       <tr>
@@ -215,7 +301,7 @@
   </section>
 
   <!-- PROFESSIONAL EXPERIENCE -->
-  <section class="section">
+  <section id="experience" class="section">
     <div class="section-title">Professional Experience</div>
 
     <!-- Senior Principal -->
@@ -419,7 +505,7 @@
   </section>
 
   <!-- PATENTS & INTELLECTUAL PROPERTY -->
-  <section class="section">
+  <section id="patents" class="section">
     <div class="section-title">Patents & Intellectual Property</div>
     <p style="font-size: 9.5pt; color: var(--muted); margin-bottom: 12px;">
       Inventor of multiple patented technologies that have introduced transformative advancements in neurostimulation and medical device software. These patents have been collectively cited by 37 unique patent families across the industry, influencing cutting-edge developments in medical technology.
@@ -512,7 +598,7 @@
   </section>
 
   <!-- AWARDS & HONORS -->
-  <section class="section">
+  <section id="awards" class="section">
     <div class="section-title">Awards & Honors</div>
 
     <div class="award-card">
@@ -538,7 +624,7 @@
   </section>
 
   <!-- EDUCATION -->
-  <section class="section">
+  <section id="education" class="section">
     <div class="section-title">Education</div>
 
     <div class="edu-card">
@@ -563,7 +649,7 @@
   </section>
 
   <!-- RESEARCH & PUBLICATIONS -->
-  <section class="section">
+  <section id="research" class="section">
     <div class="section-title">Research & Publications</div>
     <div class="research-block">
       <p><strong>Master's Research: Interactive Visualization for Opinion Mining</strong></p>
@@ -585,7 +671,7 @@
   </section>
 
   <!-- PROFESSIONAL IMPACT SUMMARY -->
-  <section class="section">
+  <section id="impact" class="section">
     <div class="section-title">Professional Impact Summary</div>
     <div class="impact-grid">
       <div class="impact-item">
@@ -616,5 +702,41 @@
   </section>
 
 </div>
+
+<script>
+(function() {
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+  const sections = [];
+
+  navLinks.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const section = document.getElementById(id);
+    if (section) sections.push({ id, el: section, link });
+  });
+
+  function updateActive() {
+    const scrollY = window.scrollY + 80;
+    let current = sections[0];
+
+    for (const s of sections) {
+      if (s.el.offsetTop <= scrollY) current = s;
+    }
+
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
 </body>
 </html>
