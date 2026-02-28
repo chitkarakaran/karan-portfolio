@@ -565,6 +565,337 @@
     color: var(--primary);
   }
 
+  .patent-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .patent-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .patent-status.granted {
+    background: rgba(22, 163, 74, 0.08);
+    color: #16a34a;
+    border: 1px solid rgba(22, 163, 74, 0.15);
+  }
+
+  .patent-status.pending {
+    background: rgba(217, 119, 6, 0.08);
+    color: var(--gold);
+    border: 1px solid rgba(217, 119, 6, 0.15);
+  }
+
+  .patent-context {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.04);
+    border: 1px solid var(--border);
+  }
+
+  /* CITATIONS IMPACT */
+  .citations-impact {
+    margin-top: 48px;
+  }
+
+  .citations-summary {
+    padding: 32px 36px;
+    margin-bottom: 20px;
+    cursor: default;
+  }
+
+  .citations-summary:hover {
+    transform: none;
+  }
+
+  .citations-stats-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+  }
+
+  .citations-stat-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .citations-stat-block + .citations-stat-block {
+    padding-left: 40px;
+    border-left: 2px solid var(--border);
+  }
+
+  .citations-stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .citations-stat-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    line-height: 1.3;
+  }
+
+  .citations-stat-sublabel {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .citations-orgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .org-badge {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.06);
+    color: var(--text);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+  }
+
+  .citations-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .citations-group {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+
+  .citations-group-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    transition: background 0.2s;
+  }
+
+  .citations-group-header:hover {
+    background: rgba(37, 99, 235, 0.03);
+  }
+
+  .citations-patent-nums {
+    font-family: 'Inter', monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+  }
+
+  .citations-count {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 12px;
+  }
+
+  .citations-chevron {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .citations-group.open .citations-chevron {
+    transform: rotate(180deg);
+  }
+
+  .citations-group-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .citations-group.open .citations-group-body {
+    max-height: 5000px;
+  }
+
+  .citations-list {
+    padding: 0 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .citation-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .citation-row:hover {
+    background: rgba(37, 99, 235, 0.04);
+  }
+
+  .citation-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .citation-assignee {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-heading);
+    margin-bottom: 2px;
+  }
+
+  .citation-title {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .citation-meta {
+    flex-shrink: 0;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .citation-pub-num {
+    font-family: 'Inter', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.07);
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .citation-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .citations-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 0 4px;
+  }
+
+  .citations-updated {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .citations-verify-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-verify {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    background: rgba(37, 99, 235, 0.04);
+    transition: all 0.2s;
+  }
+
+  .btn-verify:hover {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .citations-summary {
+      padding: 24px 20px;
+    }
+    .citations-stats-row {
+      gap: 24px;
+    }
+    .citations-stat-block + .citations-stat-block {
+      padding-left: 24px;
+    }
+    .citations-stat-number {
+      font-size: 2.2rem;
+    }
+    .citation-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .citation-meta {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+    .citations-group-header {
+      padding: 16px 20px;
+    }
+    .citations-list {
+      padding: 0 16px 16px;
+    }
+    .citation-row {
+      padding: 12px;
+    }
+    .citations-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
   /* PROJECTS */
   .project-card .card-icon {
     width: 44px;
@@ -1152,28 +1483,487 @@
       <a href="https://patents.google.com/patent/US12144637B2/en" target="_blank" class="card patent-grid-card">
         <div class="patent-number">US12144637B2</div>
         <div class="patent-name">Brain Stimulation and Sensing</div>
-        <span class="badge-tag">Cited by Neural Dynamics Technologies Inc.</span>
+        <div class="patent-badges">
+          <span class="patent-status granted"><i class="fas fa-circle-check"></i> Granted 2024</span>
+          <span class="patent-context">Featured in TIME Best Inventions 2025</span>
+        </div>
       </a>
       <a href="https://patents.google.com/patent/US11986663B2/en" target="_blank" class="card patent-grid-card">
         <div class="patent-number">US11986663B2</div>
         <div class="patent-name">Offline Session Review & Programming</div>
-        <span class="badge-tag">Used in Percept Platform</span>
+        <div class="patent-badges">
+          <span class="patent-status granted"><i class="fas fa-circle-check"></i> Granted 2024</span>
+          <span class="patent-context">Deployed in Percept Platform</span>
+        </div>
       </a>
       <a href="https://patents.google.com/patent/US11571576B2/en" target="_blank" class="card patent-grid-card">
         <div class="patent-number">US11571576B2</div>
         <div class="patent-name">Adaptive Brain Signal Processing</div>
-        <span class="badge-tag">Cited by Stanford</span>
+        <div class="patent-badges">
+          <span class="patent-status granted"><i class="fas fa-circle-check"></i> Granted 2023</span>
+          <span class="patent-context">BrainSense Adaptive DBS</span>
+        </div>
       </a>
       <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank" class="card patent-grid-card">
         <div class="patent-number">WO2025029593A1</div>
         <div class="patent-name">Electrode Signal Visualization UI</div>
-        <span class="badge-tag">Filed 2025 &middot; Pending</span>
+        <div class="patent-badges">
+          <span class="patent-status pending"><i class="fas fa-clock"></i> Filed 2025 &middot; Pending</span>
+        </div>
       </a>
       <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank" class="card patent-grid-card">
         <div class="patent-number">WO2025029591A1</div>
         <div class="patent-name">Electrode Ranking Automation</div>
-        <span class="badge-tag">Filed 2025 &middot; Pending</span>
+        <div class="patent-badges">
+          <span class="patent-status pending"><i class="fas fa-clock"></i> Filed 2025 &middot; Pending</span>
+        </div>
       </a>
+    </div>
+
+    <!-- CITATIONS IMPACT -->
+    <div class="citations-impact">
+      <div class="citations-summary card">
+        <div class="citations-stats-row">
+          <div class="citations-stat-block">
+            <div class="citations-stat-number">37</div>
+            <div>
+              <div class="citations-stat-label">Citing Patent Families</div>
+              <div class="citations-stat-sublabel">Unique families across 3 granted patents</div>
+            </div>
+          </div>
+          <div class="citations-stat-block">
+            <div class="citations-stat-number">15+</div>
+            <div>
+              <div class="citations-stat-label">Citing Organizations</div>
+              <div class="citations-stat-sublabel">Industry leaders &amp; research universities</div>
+            </div>
+          </div>
+        </div>
+        <div class="citations-orgs">
+          <span class="org-badge">Boston Scientific</span>
+          <span class="org-badge">Medtronic</span>
+          <span class="org-badge">Stanford University</span>
+          <span class="org-badge">Carnegie Mellon University</span>
+          <span class="org-badge">Newronika</span>
+          <span class="org-badge">Saluda Medical</span>
+          <span class="org-badge">Precision Neuroscience</span>
+          <span class="org-badge">Neural Dynamics Technologies</span>
+          <span class="org-badge">Ohio State</span>
+          <span class="org-badge">Synchron</span>
+          <span class="org-badge">Alfred E. Mann Foundation</span>
+        </div>
+      </div>
+
+      <div class="citations-accordion">
+        <!-- Group 1: US12144637B2 & US11571576B2 (same patent family) -->
+        <div class="citations-group">
+          <button class="citations-group-header" onclick="toggleCitations(this)">
+            <div>
+              <span class="citations-patent-nums">US12144637B2 &amp; US11571576B2</span>
+              <span class="citations-count">33 citing families</span>
+            </div>
+            <i class="fas fa-chevron-down citations-chevron"></i>
+          </button>
+          <div class="citations-group-body">
+            <div class="citations-list">
+              <a href="https://patents.google.com/patent/EP3204112A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Systems, devices, and methods for electrical stimulation using feedback to adjust stimulation parameters</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">EP3204112A1</span>
+                  <span class="citation-date">2017-08-16</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US10596379B2/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Newronika S.r.l.</div>
+                  <div class="citation-title">Apparatus and method for treating neurological disorders</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US10596379B2</span>
+                  <span class="citation-date">2020-03-24</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/IT201800002962A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Newronika S.r.l.</div>
+                  <div class="citation-title">Apparatus for the treatment of neurological disorders using electrostimulation and method of processing the neurological signal</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">IT201800002962A1</span>
+                  <span class="citation-date">2019-08-22</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US11318309B2/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Newronika S.P.A.</div>
+                  <div class="citation-title">Method and apparatus for treating Tourette Syndrome by brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US11318309B2</span>
+                  <span class="citation-date">2022-05-03</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/EP4445832A3/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Newronika S.p.A.</div>
+                  <div class="citation-title">Systems and methods for adaptive deep brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">EP4445832A3</span>
+                  <span class="citation-date">2024-12-25</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/EP4291294A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Systems and methods for automated programming of electrical stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">EP4291294A1</span>
+                  <span class="citation-date">2023-12-20</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2022235467A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Carnegie Mellon University</div>
+                  <div class="citation-title">System and method for deep learning for tracking cortical spreading depression using EEG</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2022235467A1</span>
+                  <span class="citation-date">2022-11-10</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/EP4313269A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Methods and systems for estimating neural activation by stimulation using a stimulation system</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">EP4313269A1</span>
+                  <span class="citation-date">2024-02-07</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US20230026404A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">West Affum Holdings DAC</div>
+                  <div class="citation-title">Wearable medical devices detecting declines in health and probability of adverse events</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US20230026404A1</span>
+                  <span class="citation-date">2023-01-26</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US20240399154A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Electric field therapy via implantable electrode</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US20240399154A1</span>
+                  <span class="citation-date">2024-12-05</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US20230099390A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Using evoked potentials for brain stimulation therapies</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US20230099390A1</span>
+                  <span class="citation-date">2023-03-30</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US20230166111A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Evoked signal based deep brain stimulation (DBS) programming</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US20230166111A1</span>
+                  <span class="citation-date">2023-06-01</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN118251257A/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Methods and systems for monitoring or assessing movement disorders using a stimulation system</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN118251257A</span>
+                  <span class="citation-date">2024-06-25</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/EP4415809B1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Systems and methods for generating and using response maps for electrical stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">EP4415809B1</span>
+                  <span class="citation-date">2026-01-28</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2023115148A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Saluda Medical Pty Ltd</div>
+                  <div class="citation-title">Assisted programming system for neural stimulation therapy</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2023115148A1</span>
+                  <span class="citation-date">2023-06-29</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US20250050106A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Saluda Medical Pty Ltd</div>
+                  <div class="citation-title">Assisted programming system for neural stimulation therapy</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US20250050106A1</span>
+                  <span class="citation-date">2025-02-13</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN116407756A/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Precision Medical Co., Ltd.</div>
+                  <div class="citation-title">Method for judging quality of electric stimulation signal, electric stimulation device and storage medium</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN116407756A</span>
+                  <span class="citation-date">2023-07-11</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2023147514A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">The Board of Trustees of the Leland Stanford Junior University</div>
+                  <div class="citation-title">Systems and methods for randomized coordinated reset deep brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2023147514A1</span>
+                  <span class="citation-date">2023-08-03</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US12533520B2/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Boston Scientific Neuromodulation Corporation</div>
+                  <div class="citation-title">Systems and methods for monitoring stimulation drift in an electrical stimulation system</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US12533520B2</span>
+                  <span class="citation-date">2026-01-27</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2023168034A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Electrode configurations for electric field therapy</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2023168034A1</span>
+                  <span class="citation-date">2023-09-07</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN120358977A/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Automatic calibration method and system for local field potential sensing tool for deep brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN120358977A</span>
+                  <span class="citation-date">2025-07-22</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN115814271A/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Hangzhou Nuowei Medical Technology Co., Ltd.</div>
+                  <div class="citation-title">System, apparatus and computer-readable storage medium for neural stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN115814271A</span>
+                  <span class="citation-date">2023-03-21</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN115878969B/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">BRC Technology (Changzhou) Co., Ltd.</div>
+                  <div class="citation-title">Parameter adjusting method of stimulation system based on offline detection result and time-sharing stimulation system</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN115878969B</span>
+                  <span class="citation-date">2023-05-26</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2024178317A2/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Neural Dynamics Technologies Inc.</div>
+                  <div class="citation-title">Deep brain stimulation systems and methods</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2024178317A2</span>
+                  <span class="citation-date">2024-08-29</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN121038857A/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Systems, methods, and devices for providing stimulation therapy using displays of sensed physiological signals</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN121038857A</span>
+                  <span class="citation-date">2025-11-28</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025059530A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Ohio State Innovation Foundation</div>
+                  <div class="citation-title">Determining tremor characteristics from deep brain local field potential recordings</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025059530A1</span>
+                  <span class="citation-date">2025-03-20</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN117462148B/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Huichuang Scientific Instruments (Beijing) Co., Ltd.</div>
+                  <div class="citation-title">Lead configuration device, method and storage medium for electroencephalogram detection equipment</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN117462148B</span>
+                  <span class="citation-date">2024-05-14</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025158348A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Programming adaptive deep brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025158348A1</span>
+                  <span class="citation-date">2025-07-31</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025158351A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Neurostimulation therapy using multiple leads positioned to provide improved sensing of physiological signals</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025158351A1</span>
+                  <span class="citation-date">2025-07-31</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025158346A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Guided programming of adaptive deep brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025158346A1</span>
+                  <span class="citation-date">2025-07-31</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/CN117797406B/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Air Force Medical University (PLA)</div>
+                  <div class="citation-title">Closed-loop transcutaneous acupoint electrical stimulation sedation method and system</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">CN117797406B</span>
+                  <span class="citation-date">2024-11-12</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025189249A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Saluda Medical Pty Limited</div>
+                  <div class="citation-title">Methods and systems for programming closed-loop neural stimulation therapy</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025189249A1</span>
+                  <span class="citation-date">2025-09-18</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025224540A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Medtronic, Inc.</div>
+                  <div class="citation-title">Adjustments to adaptive deep brain stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025224540A1</span>
+                  <span class="citation-date">2025-10-30</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: US11986663B2 -->
+        <div class="citations-group">
+          <button class="citations-group-header" onclick="toggleCitations(this)">
+            <div>
+              <span class="citations-patent-nums">US11986663B2</span>
+              <span class="citations-count">4 citing families</span>
+            </div>
+            <i class="fas fa-chevron-down citations-chevron"></i>
+          </button>
+          <div class="citations-group-body">
+            <div class="citations-list">
+              <a href="https://patents.google.com/patent/WO2024086346A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Precision Neuroscience Corporation</div>
+                  <div class="citation-title">High-bandwidth systems for closed-loop spinal cord stimulation</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2024086346A1</span>
+                  <span class="citation-date">2024-04-25</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/US12530080B2/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Precision Neuroscience Corporation</div>
+                  <div class="citation-title">Systems and methods for self-calibrating neural decoding</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">US12530080B2</span>
+                  <span class="citation-date">2026-01-20</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025059210A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">Synchron Australia Pty Limited</div>
+                  <div class="citation-title">Systems for controlling one or more devices using a signal control unit</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025059210A1</span>
+                  <span class="citation-date">2025-03-20</span>
+                </div>
+              </a>
+              <a href="https://patents.google.com/patent/WO2025207153A1/en" target="_blank" class="citation-row">
+                <div class="citation-info">
+                  <div class="citation-assignee">The Alfred E. Mann Foundation for Scientific Research</div>
+                  <div class="citation-title">Implantable stimulation systems and energy-efficient sensing methods</div>
+                </div>
+                <div class="citation-meta">
+                  <span class="citation-pub-num">WO2025207153A1</span>
+                  <span class="citation-date">2025-10-02</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="citations-footer">
+        <span class="citations-updated"><i class="fas fa-clock"></i> Last updated: Feb 2026</span>
+        <div class="citations-verify-links">
+          <a href="https://patents.google.com/patent/US12144637B2/en#citedBy" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> US12144637B2</a>
+          <a href="https://patents.google.com/patent/US11986663B2/en#citedBy" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> US11986663B2</a>
+          <a href="https://patents.google.com/patent/US11571576B2/en#citedBy" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> US11571576B2</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1641,6 +2431,11 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  function toggleCitations(btn) {
+    const group = btn.closest('.citations-group');
+    group.classList.toggle('open');
+  }
 </script>
 
 </body>
