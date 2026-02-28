@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karan Chitkara — Comprehensive CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text: #1a1a1a;
+      --muted: #444;
+      --accent: #1e40af;
+      --border: #d1d5db;
+      --bg: #fff;
+      --light-bg: #f8fafc;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 10pt;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.5in 0.65in;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 14px; }
+    .header h1 { font-size: 26pt; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .header .subtitle { font-size: 11pt; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+    .header .contact {
+      display: flex; justify-content: center; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+      font-size: 9pt; color: var(--muted);
+    }
+    .header .contact span { white-space: nowrap; }
+    .sep { color: var(--border); }
+
+    /* Sections */
+    .section { margin-bottom: 20px; }
+    .section-title {
+      font-size: 11pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px; margin-bottom: 12px;
+    }
+
+    /* Summary */
+    .summary { color: var(--text); font-size: 10pt; line-height: 1.6; }
+
+    /* Skills */
+    .skills-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+    .skills-table td { padding: 5px 10px; vertical-align: top; }
+    .skills-table td:first-child {
+      font-weight: 600; color: var(--accent); width: 150px;
+      border-right: 1px solid var(--border); white-space: nowrap;
+    }
+    .skills-table tr { border-bottom: 1px solid #f0f0f0; }
+
+    /* Experience */
+    .role { margin-bottom: 18px; page-break-inside: avoid; }
+    .role:last-child { margin-bottom: 0; }
+    .role-header-block { margin-bottom: 6px; }
+    .role-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .role-title { font-weight: 700; font-size: 11pt; }
+    .role-company { font-weight: 600; color: var(--accent); }
+    .role-dates { font-size: 9.5pt; color: var(--muted); white-space: nowrap; font-weight: 500; }
+    .role-intro { font-size: 9.5pt; color: var(--muted); font-style: italic; margin-bottom: 6px; line-height: 1.5; }
+
+    .role-subsection { font-weight: 600; font-size: 9.5pt; color: var(--text); margin-top: 8px; margin-bottom: 3px; }
+    .role ul { padding-left: 18px; }
+    .role li { margin-bottom: 3px; font-size: 9.5pt; color: #222; line-height: 1.5; }
+    .role li::marker { color: var(--accent); }
+
+    .achievements-box {
+      margin-top: 8px; padding: 8px 14px;
+      border-left: 3px solid var(--accent);
+      background: var(--light-bg);
+    }
+    .achievements-box .label { font-weight: 700; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 4px; }
+    .achievements-box ul { padding-left: 16px; }
+    .achievements-box li { font-size: 9pt; color: #333; margin-bottom: 2px; }
+
+    /* Patents */
+    .patent-card {
+      padding: 10px 14px; margin-bottom: 12px;
+      border: 1px solid var(--border); border-radius: 6px;
+      page-break-inside: avoid;
+    }
+    .patent-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .patent-title { font-weight: 700; font-size: 10pt; }
+    .patent-id { font-size: 8.5pt; color: var(--muted); font-weight: 500; }
+    .patent-status {
+      display: inline-block; font-size: 7.5pt; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .patent-status.granted { background: #dcfce7; color: #166534; }
+    .patent-status.pending { background: #fef9c3; color: #854d0e; }
+    .patent-desc { font-size: 9.5pt; color: #333; line-height: 1.5; margin-top: 4px; }
+    .patent-meta { font-size: 8.5pt; color: var(--muted); margin-top: 4px; }
+
+    /* Awards */
+    .award-card {
+      padding: 10px 14px; margin-bottom: 10px;
+      border-left: 3px solid var(--accent);
+      background: var(--light-bg);
+      page-break-inside: avoid;
+    }
+    .award-name { font-weight: 700; font-size: 10pt; margin-bottom: 3px; }
+    .award-detail { font-size: 9.5pt; color: #333; line-height: 1.5; }
+
+    /* Education */
+    .edu-card { margin-bottom: 10px; }
+    .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .edu-degree { font-weight: 700; font-size: 10pt; }
+    .edu-school { font-size: 9.5pt; color: var(--muted); }
+    .edu-date { font-size: 9pt; color: var(--muted); white-space: nowrap; }
+
+    /* Research */
+    .research-block { font-size: 9.5pt; line-height: 1.55; }
+    .research-block ul { padding-left: 18px; margin-top: 4px; }
+    .research-block li { margin-bottom: 3px; }
+
+    /* Impact summary */
+    .impact-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; text-align: center;
+    }
+    .impact-item {
+      padding: 10px; border: 1px solid var(--border); border-radius: 6px;
+    }
+    .impact-number { font-size: 18pt; font-weight: 700; color: var(--accent); }
+    .impact-label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-top: 2px; }
+
+    /* Print */
+    @media print {
+      body { font-size: 10pt; }
+      .page { padding: 0.4in 0.55in; max-width: none; }
+      a { color: var(--text); }
+      .patent-card { border-color: #ccc; }
+      .impact-item { border-color: #ccc; }
+    }
+
+    @page { size: letter; margin: 0; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Karan Chitkara</h1>
+    <div class="subtitle">Senior Principal Software Engineer — Medical Device Software & Neurostimulation Systems</div>
+    <div class="contact">
+      <span>701-200-1689</span>
+      <span class="sep">|</span>
+      <span><a href="mailto:karan.chitkara@outlook.com">karan.chitkara@outlook.com</a></span>
+      <span class="sep">|</span>
+      <span><a href="https://www.linkedin.com/in/karan-chitkara-332384b2">linkedin.com/in/karan-chitkara</a></span>
+      <span class="sep">|</span>
+      <span><a href="https://scholar.google.com/citations?user=NtgsucYAAAAJ">Google Scholar</a></span>
+    </div>
+  </header>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="section">
+    <div class="section-title">Professional Summary</div>
+    <p class="summary">
+      An accomplished Senior Principal Software Engineer with over 12 years of specialized expertise in safety-critical medical device software development for neurostimulation therapy systems. Inventor on five U.S. and international patents (three granted, two pending) that have introduced transformative advancements in deep brain stimulation technology and have been cited by 37 patent families across the industry. Served as Software Development Lead for the Medtronic Percept Deep Brain Stimulation system, recognized by TIME Magazine as one of the Best Inventions of 2025. Recipient of Medtronic's Technical Contributor of the Year Award (2024), conferred upon fewer than 1% of the company's 95,000+ global workforce. Proven track record of designing scalable architectures, building automation frameworks that reduced validation timelines from months to days, implementing cryptographic security protocols for implantable medical devices, and driving cross-functional collaboration to achieve regulatory clearances across 10+ global markets, including FDA (U.S.), TÜV (EU MDR), NMPA (China), and many more.
+    </p>
+  </section>
+
+  <!-- TECHNICAL EXPERTISE -->
+  <section class="section">
+    <div class="section-title">Technical Expertise</div>
+    <table class="skills-table">
+      <tr>
+        <td>Languages</td>
+        <td>C, C++, C# (.NET), Swift, Kotlin, Java, JavaScript, Python, SQL (MySQL, SQL Server), XML, HTML/CSS</td>
+      </tr>
+      <tr>
+        <td>Platforms</td>
+        <td>iOS (UIKit, SwiftUI), Android (Jetpack), Kotlin Multiplatform (KMM), Bluetooth Low Energy (BLE) for medical devices</td>
+      </tr>
+      <tr>
+        <td>Tools & IDEs</td>
+        <td>Xcode, Android Studio, IntelliJ IDEA, Visual Studio, Git, Jenkins (CI/CD), Static & Dynamic Analysis Tools</td>
+      </tr>
+      <tr>
+        <td>Architecture</td>
+        <td>MVVM, MVP, MVC, FLUX, Dependency Injection, Modular/Reusable Frameworks, Cross-Platform SDKs</td>
+      </tr>
+      <tr>
+        <td>Regulatory</td>
+        <td>FDA 21 CFR Part 820, IEC 62304 (Medical Device Software Lifecycle), ISO 14971 (Risk Management), and 10+ additional global regulatory frameworks (TÜV/EU MDR, NMPA, and many more)</td>
+      </tr>
+      <tr>
+        <td>Security</td>
+        <td>Cryptographic Protocols, HIPAA, GDPR, BLE Provisioning & Obfuscation, Tamper-Proof Device Communication</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <!-- Senior Principal -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Senior Principal Software Engineer</div>
+          <div class="role-dates">June 2025 – Present</div>
+        </div>
+        <div class="role-company">Medtronic plc — Neuromodulation Division, Minneapolis, MN</div>
+      </div>
+      <p class="role-intro">Promoted to the highest individual contributor engineering level for outstanding innovation and technical depth in medical device software development. Drive the design and strategic direction of complex neurostimulation platforms.</p>
+      <ul>
+        <li>Defined the technical roadmap for platform-wide software modernization including modular architecture, telemetry acceleration, and security-first design for the next-generation External Neurostimulator (ENS), positioning it to replace legacy systems worldwide.</li>
+        <li>Led cross-functional alignment with human factors, systems engineering, clinical, and firmware teams to drive end-to-end design traceability, regulatory readiness, and cohesive user experiences across platforms.</li>
+        <li>Served as software architect and visionary behind several key Medtronic innovations, including multi-device reusability frameworks, patient/session data fidelity enhancements, and dynamic signal-driven programming systems.</li>
+        <li>Elevated software governance through implementation of enterprise-level development practices, including scalable design patterns, code health infrastructure, and static/dynamic analysis protocols tuned for safety-critical systems.</li>
+        <li>Acted as technical advisor to senior leadership, offering guidance on technology investments, product risk strategies, and competitive positioning in the neurostimulation landscape.</li>
+        <li>Delivered strategic IP contributions, including multiple U.S. and international patents on electrode selection, signal trace visualization, and data-driven programming automation — demonstrating market foresight and technical originality.</li>
+        <li>Actively mentoring emerging engineering talent, leading internal working groups, and driving a culture of excellence around software design, reliability engineering, and innovation lifecycle acceleration.</li>
+        <li>Continually advocating for cybersecurity integration into the product lifecycle, helping establish provisioning and obfuscation protocols tailored for BLE-enabled implantable interfaces and mobile companions.</li>
+      </ul>
+    </div>
+
+    <!-- Principal -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Principal Software Engineer</div>
+          <div class="role-dates">December 2021 – June 2025</div>
+        </div>
+        <div class="role-company">Medtronic plc — Neuromodulation Division, Minneapolis, MN</div>
+      </div>
+
+      <div class="role-subsection">Software Architecture & Design for Medical Devices</div>
+      <ul>
+        <li>Architected scalable and modular software frameworks for Medtronic's Deep Brain Stimulation (DBS) systems, ensuring high performance, security, and compliance with medical regulations across 10+ global regulatory markets.</li>
+        <li>Led the design of cross-platform mobile architectures (iOS & Android) to standardize development, improve efficiency, and reduce maintenance overhead across therapy teams.</li>
+        <li>Developed common reusable software components, enabling multiple teams across Medtronic to leverage a unified development approach and eliminating redundant engineering efforts.</li>
+      </ul>
+
+      <div class="role-subsection">Leading Major Product Releases for DBS Therapy</div>
+      <ul>
+        <li>Played a critical role in multiple major software releases, including the Sensight Directional Lead System and Adaptive Deep Brain Stimulation (aDBS), ensuring millions of patients worldwide have access to optimized neurostimulation therapy.</li>
+        <li>Ensured successful deployment of DBS software solutions across numerous international regulatory markets, including FDA (US), TÜV (EU MDR), NMPA (China), and many more global bodies.</li>
+        <li>Led technical execution for new therapy programming features, improving clinical efficiency and reducing patient visit times.</li>
+        <li>Spearheaded the Electrode Identifier feature — an innovation that automates electrode selection and titration, saving clinicians hours of programming time — recognized as part of TIME Magazine's Best Inventions of 2025.</li>
+      </ul>
+
+      <div class="role-subsection">Automation & Software Testing Efficiency</div>
+      <ul>
+        <li>Designed and implemented automation frameworks that drastically reduced software validation cycles from months to days, enabling faster regulatory approvals and accelerating time-to-market.</li>
+        <li>Developed the Automation Runner Tool, which analyzes over 17 million lines of code and executes 20,000+ test cases automatically, streamlining the testing pipeline and reducing manual effort by 90%.</li>
+        <li>Integrated automated test execution with software requirements tracking, simplifying regulatory audits and providing end-to-end traceability.</li>
+      </ul>
+
+      <div class="role-subsection">Security & Cryptography in Medical Software</div>
+      <ul>
+        <li>Implemented cryptographic security protocols to encrypt patient data and secure device communication via Bluetooth Low Energy (BLE), ensuring tamper-proof interaction between mobile applications and implantable neurostimulators.</li>
+        <li>Ensured compliance with HIPAA, GDPR, and global medical data security standards through secure software design principles.</li>
+        <li>Developed proprietary encryption frameworks for Medtronic's next-generation neurostimulator devices, ensuring patient data protection across all communication channels.</li>
+      </ul>
+
+      <div class="role-subsection">Cross-Functional Leadership & Mentorship</div>
+      <ul>
+        <li>Worked closely with Systems, Human Factors, Risk, Reliability, and Firmware teams to ensure a smooth software development lifecycle (SDLC) from initial design to post-market release.</li>
+        <li>Led cross-team discussions to bridge the gap between software, hardware, and clinical engineering, ensuring software solutions align with real-world medical use cases.</li>
+        <li>Mentored multiple junior engineers and interns, guiding them in software design, best practices, and Medtronic's regulatory software development processes.</li>
+        <li>Conducted technical interviews for full-time hires, ensuring that new talent aligns with Medtronic's engineering standards.</li>
+        <li>Led exploratory research into AI-driven therapy optimizations and enhanced user interfaces for clinicians.</li>
+      </ul>
+
+      <div class="achievements-box">
+        <div class="label">Key Impact</div>
+        <ul>
+          <li>Accelerated regulatory approval timelines by developing automation frameworks that reduced validation cycles from months to days.</li>
+          <li>Improved efficiency for clinicians and patients by leading the Electrode Identifier feature, automating electrode selection and saving hours per session.</li>
+          <li>Enhanced software security by implementing cryptographic encryption, ensuring Medtronic's medical devices comply with global data protection regulations.</li>
+          <li>Contributed to major DBS software releases serving millions of patients worldwide.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Senior -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Senior Software Engineer</div>
+          <div class="role-dates">July 2018 – December 2021</div>
+        </div>
+        <div class="role-company">Medtronic plc — Neuromodulation Division, Minneapolis, MN</div>
+      </div>
+
+      <div class="role-subsection">Cross-Therapy Mobile Communication Platform</div>
+      <ul>
+        <li>Designed and implemented a common platform to facilitate secure and reliable communication between Medtronic medical devices and mobile applications (Android & iOS), standardizing data exchange, device pairing, and communication protocols.</li>
+        <li>Enabled multiple therapy teams to adopt a unified framework instead of building custom implementations, significantly reducing development effort and ensuring consistency across the Neuromodulation division.</li>
+        <li>Improved scalability and maintainability by implementing a modular, reusable architecture with well-documented SDKs, API guides, and example implementations.</li>
+      </ul>
+
+      <div class="role-subsection">Cross-Platform Development with Kotlin Multiplatform (KMM)</div>
+      <ul>
+        <li>Designed and implemented a KMM-based framework, allowing developers to write shared business logic for iOS and Android, reducing code duplication and accelerating feature development.</li>
+        <li>Provided common APIs and data models that therapy teams could use to focus on UI and therapy-specific logic rather than handling lower-level communication details.</li>
+        <li>Conducted architecture reviews and code consultations to ensure consistency and best practices across therapy teams adopting the platform.</li>
+      </ul>
+
+      <div class="role-subsection">Development Efficiency & Team Collaboration</div>
+      <ul>
+        <li>Implemented a dependency injection framework to allow teams to integrate only the required components, ensuring lighter and more efficient mobile applications.</li>
+        <li>Designed automated test frameworks for the shared platform, ensuring high stability and compatibility before deployment across therapy applications.</li>
+        <li>Worked with firmware and embedded systems teams to align mobile communication protocols with device-side implementations, ensuring seamless interaction.</li>
+        <li>Collaborated with offshore teams to ensure seamless integration of the platform across different therapy applications.</li>
+      </ul>
+
+      <div class="achievements-box">
+        <div class="label">Key Impact</div>
+        <ul>
+          <li>Developed a foundational mobile communication platform now adopted by multiple therapy teams across Medtronic's Neuromodulation department, eliminating redundant development efforts.</li>
+          <li>Reduced onboarding and development time for new therapy applications by providing a ready-to-use communication framework with built-in security and reliability.</li>
+          <li>Enabled cross-platform development, allowing shared business logic between iOS and Android, reducing maintenance overhead.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Software Engineer -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Software Engineer</div>
+          <div class="role-dates">January 2017 – June 2018</div>
+        </div>
+        <div class="role-company">Medtronic plc — Neuromodulation Division, Minneapolis, MN</div>
+      </div>
+      <ul>
+        <li>Designed and implemented a mobile application for Deep Brain Stimulation (DBS) therapy, enabling clinicians to configure and manage neurostimulation therapy for patients with integrated secure BLE communication protocols.</li>
+        <li>Utilized MVC, MVP, and FLUX architectural patterns to develop a modular and maintainable software structure, improving code reusability and scalability.</li>
+        <li>Developed an automation tool to capture and document application screens, reducing manual validation efforts for regulatory approval and providing engineers and regulatory teams with structured documentation for software verification.</li>
+        <li>Created and implemented unit tests and automated testing frameworks to ensure high code quality and system reliability, designing end-to-end test cases covering edge cases, performance tests, and security assessments.</li>
+      </ul>
+      <div class="achievements-box">
+        <div class="label">Key Impact</div>
+        <ul>
+          <li>Developed core mobile application components, laying the foundation for future advancements in Medtronic's therapy software.</li>
+          <li>Optimized BLE communication protocols, improving device pairing speed and data exchange reliability.</li>
+          <li>Automated UI validation processes, significantly reducing manual effort and expediting regulatory compliance approvals.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Associate Software Engineer -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Associate Software Engineer</div>
+          <div class="role-dates">April 2015 – December 2016</div>
+        </div>
+        <div class="role-company">Medtronic plc — Neuromodulation Division, Minneapolis, MN</div>
+      </div>
+      <ul>
+        <li>Diagnosed and resolved critical software defects in Android-based medical applications, improving system reliability and user experience through root cause analysis and comprehensive debugging.</li>
+        <li>Contributed to feature development for Medtronic's Android applications, implementing key UI components and business logic while supporting senior and principal engineers in architecture decisions.</li>
+        <li>Wrote unit tests and automated test scripts, ensuring software quality, preventing regressions, and increasing code coverage across releases.</li>
+        <li>Worked alongside firmware, backend, and testing teams to ensure seamless integration of software components, gaining hands-on experience in the end-to-end medical device software development lifecycle.</li>
+      </ul>
+    </div>
+
+    <!-- Open Access Technology -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Software Developer</div>
+          <div class="role-dates">January 2014 – March 2015</div>
+        </div>
+        <div class="role-company">Open Access Technology International (OATI), Minneapolis, MN</div>
+      </div>
+      <ul>
+        <li>Diagnosed and resolved over 150 real-world software issues, enhancing the reliability of enterprise applications used in the power trading and energy generation industry.</li>
+        <li>Designed and implemented new software modules using JavaScript and C#, expanding system capabilities for power industry clients, including interactive web applications for power distribution data visualization.</li>
+        <li>Created complex stored procedures, views, and functions in SQL Server to process large volumes of energy transaction data efficiently, optimizing database performance and retrieval speeds.</li>
+        <li>Worked on an advanced C++-based computation engine that interacted with SQL Server databases to solve unit commitment problems — optimizing energy generation planning and minimizing costs while meeting demand.</li>
+      </ul>
+    </div>
+
+    <!-- NDSU -->
+    <div class="role">
+      <div class="role-header-block">
+        <div class="role-header">
+          <div class="role-title">Java Programmer</div>
+          <div class="role-dates">April 2012 – December 2013</div>
+        </div>
+        <div class="role-company">Distance and Continuing Education, North Dakota State University, Fargo, ND</div>
+      </div>
+      <ul>
+        <li>Designed and developed a web-based course proposal approval system, replacing the university's paper-based process with a digital platform built in Java with a MySQL database backend.</li>
+        <li>Built interactive front-end interfaces using HTML, CSS, and JavaScript, and implemented server-side validation and role-based access controls using the Struts framework.</li>
+        <li>Integrated the system with existing university databases, enabling seamless data synchronization across multiple departments and reducing administrative overhead.</li>
+        <li>Provided technical documentation and training to administrative staff, ensuring smooth adoption and transition to the new platform.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PATENTS & INTELLECTUAL PROPERTY -->
+  <section class="section">
+    <div class="section-title">Patents & Intellectual Property</div>
+    <p style="font-size: 9.5pt; color: var(--muted); margin-bottom: 12px;">
+      Inventor of multiple patented technologies that have introduced transformative advancements in neurostimulation and medical device software. These patents have been collectively cited by 37 unique patent families across the industry, influencing cutting-edge developments in medical technology.
+    </p>
+
+    <div class="patent-card">
+      <div class="patent-header">
+        <div>
+          <span class="patent-status granted">Granted</span>&ensp;
+          <span class="patent-title">Brain Stimulation and Sensing</span>
+        </div>
+        <span class="patent-id">US12144637B2</span>
+      </div>
+      <p class="patent-desc">
+        Developed a novel system for optimizing therapy delivery and monitoring brain signals, enabling real-time adjustments for neurostimulation therapy. This invention enables precision therapy programming for medical professionals, allowing clinicians to visualize and respond to neural activity patterns during programming sessions.
+      </p>
+      <p class="patent-meta">
+        Granted 2024 &nbsp;·&nbsp; Cited by multiple patent families &nbsp;·&nbsp;
+        <a href="https://patents.google.com/patent/US12144637B2/en">Google Patents</a>
+      </p>
+    </div>
+
+    <div class="patent-card">
+      <div class="patent-header">
+        <div>
+          <span class="patent-status granted">Granted</span>&ensp;
+          <span class="patent-title">Offline Session Review & Interactive Programming for Medical Devices</span>
+        </div>
+        <span class="patent-id">US11986663B2</span>
+      </div>
+      <p class="patent-desc">
+        Designed an offline data review system that allows clinicians to analyze therapy adjustments and patient response history without direct device connectivity. This innovation enhanced clinical workflow efficiency by enabling session review and treatment planning outside of direct patient visits, reducing session time and improving treatment personalization.
+      </p>
+      <p class="patent-meta">
+        Granted 2024 &nbsp;·&nbsp; Cited by multiple patent families &nbsp;·&nbsp;
+        <a href="https://patents.google.com/patent/US11986663B2/en">Google Patents</a>
+      </p>
+    </div>
+
+    <div class="patent-card">
+      <div class="patent-header">
+        <div>
+          <span class="patent-status granted">Granted</span>&ensp;
+          <span class="patent-title">Brain Stimulation and Sensing</span>
+        </div>
+        <span class="patent-id">US11571576B2</span>
+      </div>
+      <p class="patent-desc">
+        Created an advanced interface for analyzing brain activity and stimulation parameters, integrating automated signal processing for optimized therapy adjustments. Directly impacts adaptive deep brain stimulation (aDBS) systems, paving the way for more intelligent, personalized treatment solutions that respond dynamically to patient neural signals.
+      </p>
+      <p class="patent-meta">
+        Granted 2023 &nbsp;·&nbsp; Cited by multiple patent families &nbsp;·&nbsp;
+        <a href="https://patents.google.com/patent/US11571576B2/en">Google Patents</a>
+      </p>
+    </div>
+
+    <div class="patent-card">
+      <div class="patent-header">
+        <div>
+          <span class="patent-status pending">Pending</span>&ensp;
+          <span class="patent-title">User Interface for Electrode Sensing Results in a Medical Device System</span>
+        </div>
+        <span class="patent-id">WO2025029593A1</span>
+      </div>
+      <p class="patent-desc">
+        Designed an intelligent and interactive software interface for displaying electrode-specific neural sensing results in a deep brain stimulation (DBS) system. Enables clinicians to evaluate signal quality across various electrode combinations using time-aligned signal traces and graphical overlays, improving decision-making for therapy configuration and facilitating streamlined programming workflows.
+      </p>
+      <p class="patent-meta">
+        Filed 2025 &nbsp;·&nbsp;
+        <a href="https://patents.google.com/patent/WO2025029593A1/en">Google Patents</a>
+      </p>
+    </div>
+
+    <div class="patent-card">
+      <div class="patent-header">
+        <div>
+          <span class="patent-status pending">Pending</span>&ensp;
+          <span class="patent-title">Electrode Ranking and Configuration Scoring for Medical Device Programming</span>
+        </div>
+        <span class="patent-id">WO2025029591A1</span>
+      </div>
+      <p class="patent-desc">
+        Invented a software system for automatically scoring and ranking electrode configurations based on neural signal metrics such as amplitude, frequency, and stability. Integrates data visualization, configuration filtering, and signal classification into a single interface, enabling clinicians to identify the most effective stimulation paths without manual trial-and-error. Supports faster, repeatable, and evidence-based programming decisions in DBS therapy.
+      </p>
+      <p class="patent-meta">
+        Filed 2025 &nbsp;·&nbsp;
+        <a href="https://patents.google.com/patent/WO2025029591A1/en">Google Patents</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- AWARDS & HONORS -->
+  <section class="section">
+    <div class="section-title">Awards & Honors</div>
+
+    <div class="award-card">
+      <div class="award-name">Medtronic Technical Contributor of the Year Award (2024)</div>
+      <div class="award-detail">
+        Awarded to fewer than 1% of Medtronic's 95,000+ global workforce, recognizing engineers whose work has had a substantial impact on medical technology. Recognized for leading the software development of the Electrode Identifier — a breakthrough technology that automates therapy adjustments, drastically reducing clinician workload and enhancing patient outcomes. This technology was subsequently featured in TIME Magazine's Best Inventions of 2025.
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-name">TIME Best Inventions of 2025 — Software Development Lead</div>
+      <div class="award-detail">
+        Software Development Lead for the Medtronic Percept Deep Brain Stimulation system, selected by TIME Magazine as one of the world's most innovative products of 2025. Led the software team responsible for the Electrode Identifier feature, which automates electrode selection and titration in neurostimulation therapy, transforming the clinical programming workflow.
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-name">Medtronic Sensight Award — Successful Delivery of a Critical Project</div>
+      <div class="award-detail">
+        Awarded for delivering the Sensight Directional Lead System, an advanced neurostimulation system deployed in multiple global markets. Played a pivotal role as Software Lead, overseeing architecture design, cross-team collaboration, and verification frameworks to ensure seamless regulatory approval and launch across 10+ global markets including FDA (US), TÜV (EU MDR), NMPA (China), and others.
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <div>
+          <div class="edu-degree">Master of Science, Software Engineering</div>
+          <div class="edu-school">North Dakota State University, Fargo, ND</div>
+        </div>
+        <div class="edu-date">December 2014</div>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <div>
+          <div class="edu-degree">Bachelor of Science, Computer Science</div>
+          <div class="edu-school">North Dakota State University, Fargo, ND</div>
+        </div>
+        <div class="edu-date">May 2012</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH & PUBLICATIONS -->
+  <section class="section">
+    <div class="section-title">Research & Publications</div>
+    <div class="research-block">
+      <p><strong>Master's Research: Interactive Visualization for Opinion Mining</strong></p>
+      <p style="color: var(--muted); margin: 4px 0 6px;">North Dakota State University — Advisor: Dr. Jun Kong</p>
+      <p>
+        Developed an interactive visualization system for multi-layered sentiment analysis, enabling users to explore opinion mining results through hierarchical drill-down interfaces with dynamic graphs, heat-maps, and interactive charts. The research bridged the gap between raw NLP/sentiment data and actionable insights for business analysts and researchers.
+      </p>
+      <ul>
+        <li>Implemented NLP text processing algorithms for sentiment categorization and intensity quantification across large-scale datasets.</li>
+        <li>Built a full-stack system: Java backend for sentiment classification, MySQL for structured storage, and a responsive JavaScript/D3.js frontend for real-time data visualization.</li>
+        <li>Introduced interactive filters and multi-level navigation, enabling refinement by time period, keyword, and polarity strength.</li>
+        <li>Designed for scalability, allowing integration with social media datasets, product reviews, and large-scale opinion analysis platforms.</li>
+      </ul>
+      <p style="margin-top: 6px;">
+        <a href="https://library.ndsu.edu/ir/items/26ccb6c8-49d4-48b2-bfe6-de238735c3db">NDSU Institutional Repository</a> &nbsp;·&nbsp;
+        <a href="https://scholar.google.com/citations?user=NtgsucYAAAAJ">Google Scholar Profile</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL IMPACT SUMMARY -->
+  <section class="section">
+    <div class="section-title">Professional Impact Summary</div>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-number">5</div>
+        <div class="impact-label">Patents<br>(3 Granted, 2 Pending)</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number">37</div>
+        <div class="impact-label">Citing Patent<br>Families</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number">12+</div>
+        <div class="impact-label">Years of<br>Experience</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number">4</div>
+        <div class="impact-label">Promotions at<br>Medtronic</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number">10+</div>
+        <div class="impact-label">Global Regulatory<br>Markets</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number">90%</div>
+        <div class="impact-label">Reduction in Manual<br>Validation Effort</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

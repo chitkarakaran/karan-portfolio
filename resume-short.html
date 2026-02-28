@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karan Chitkara — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #2563eb;
+      --border: #e0e0e0;
+      --bg: #fff;
+      --tag-bg: #f1f5f9;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 9.5pt;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.45in 0.55in;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 14px; }
+    .header h1 { font-size: 22pt; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+    .header .contact {
+      display: flex; justify-content: center; align-items: center;
+      gap: 14px; flex-wrap: wrap;
+      font-size: 8.5pt; color: var(--muted);
+    }
+    .header .contact span { white-space: nowrap; }
+    .sep { color: var(--border); }
+
+    /* Sections */
+    .section { margin-bottom: 12px; }
+    .section-title {
+      font-size: 10pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 3px; margin-bottom: 8px;
+    }
+
+    /* Summary */
+    .summary { color: var(--muted); font-size: 9pt; line-height: 1.5; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: 100px 1fr; gap: 3px 12px; font-size: 9pt; }
+    .skills-label { font-weight: 600; color: var(--text); }
+    .skills-value { color: var(--muted); }
+
+    /* Experience */
+    .role { margin-bottom: 10px; }
+    .role:last-child { margin-bottom: 0; }
+    .role-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+    .role-title { font-weight: 600; font-size: 9.5pt; }
+    .role-company { color: var(--muted); font-weight: 400; }
+    .role-dates { font-size: 8.5pt; color: var(--muted); white-space: nowrap; }
+    .role ul { padding-left: 16px; }
+    .role li { margin-bottom: 1px; font-size: 9pt; color: #333; }
+    .role li::marker { color: var(--accent); }
+
+    /* Patents */
+    .patent-item { margin-bottom: 4px; font-size: 9pt; }
+    .patent-id { font-weight: 600; font-size: 8.5pt; color: var(--muted); }
+    .patent-status {
+      display: inline-block; font-size: 7pt; font-weight: 600;
+      padding: 1px 5px; border-radius: 3px; vertical-align: middle;
+      text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .patent-status.granted { background: #dcfce7; color: #166534; }
+    .patent-status.pending { background: #fef9c3; color: #854d0e; }
+
+    /* Awards */
+    .award-item { margin-bottom: 4px; font-size: 9pt; }
+    .award-name { font-weight: 600; }
+    .award-detail { color: var(--muted); }
+
+    /* Education */
+    .edu-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 9pt; margin-bottom: 2px; }
+    .edu-degree { font-weight: 600; }
+    .edu-school { color: var(--muted); }
+    .edu-date { font-size: 8.5pt; color: var(--muted); white-space: nowrap; }
+
+    /* Print */
+    @media print {
+      body { font-size: 9.5pt; }
+      .page { padding: 0.35in 0.5in; max-width: none; }
+      a { color: var(--text); }
+      .section-title { color: #1e40af; border-color: #1e40af; }
+      .role li::marker { color: #1e40af; }
+    }
+
+    @page { size: letter; margin: 0; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Karan Chitkara</h1>
+    <div class="contact">
+      <span>701-200-1689</span>
+      <span class="sep">|</span>
+      <span><a href="mailto:karan.chitkara@outlook.com">karan.chitkara@outlook.com</a></span>
+      <span class="sep">|</span>
+      <span><a href="https://www.linkedin.com/in/karan-chitkara-332384b2">LinkedIn</a></span>
+      <span class="sep">|</span>
+      <span><a href="https://scholar.google.com/citations?user=NtgsucYAAAAJ">Google Scholar</a></span>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <div class="section-title">Summary</div>
+    <p class="summary">
+      Senior Principal Software Engineer with 12+ years of experience building safety-critical medical device software for neurostimulation therapy. Inventor on 5 U.S./international patents (3 granted, 2 pending). Software Development Lead for the Medtronic Percept system, recognized as a TIME Best Invention of 2025. Recipient of Medtronic's Technical Contributor of the Year Award (top &lt;1% of 95,000+ employees). Deep expertise in mobile/embedded architectures, cryptography, automation, and regulatory compliance across FDA, TÜV, and NMPA.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <span class="skills-label">Languages</span>
+      <span class="skills-value">C, C++, C#, Swift, Kotlin, Java, JavaScript, Python, SQL</span>
+      <span class="skills-label">Platforms</span>
+      <span class="skills-value">iOS, Android, Kotlin Multiplatform (KMM), Bluetooth Low Energy (BLE)</span>
+      <span class="skills-label">Tools</span>
+      <span class="skills-value">Xcode, Android Studio, IntelliJ, Visual Studio, Git, Jenkins</span>
+      <span class="skills-label">Architecture</span>
+      <span class="skills-value">MVVM, MVP, MVC, FLUX, Dependency Injection, Modular Frameworks</span>
+      <span class="skills-label">Domains</span>
+      <span class="skills-value">FDA/TÜV/NMPA Compliance, HIPAA/GDPR, Cryptography, Medical Device Software (IEC 62304)</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <div class="role">
+      <div class="role-header">
+        <div class="role-title">Senior Principal Software Engineer <span class="role-company">— Medtronic plc</span></div>
+        <div class="role-dates">Jun 2025 – Present</div>
+      </div>
+      <ul>
+        <li>Define technical roadmap for next-generation External Neurostimulator (ENS) platform, including modular architecture, telemetry acceleration, and security-first design to replace legacy systems globally.</li>
+        <li>Lead cross-functional alignment across human factors, systems, clinical, and firmware teams to drive end-to-end design traceability and regulatory readiness.</li>
+        <li>Architect multi-device reusability frameworks and dynamic signal-driven programming systems, delivering strategic IP contributions across multiple patent filings.</li>
+        <li>Establish enterprise-level software governance — static/dynamic analysis protocols, code health infrastructure, and scalable design patterns for safety-critical systems.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <div class="role-title">Principal Software Engineer <span class="role-company">— Medtronic plc</span></div>
+        <div class="role-dates">Dec 2021 – Jun 2025</div>
+      </div>
+      <ul>
+        <li>Architected scalable software frameworks for Deep Brain Stimulation (DBS) systems, leading cross-platform mobile architectures (iOS & Android) adopted by multiple therapy teams.</li>
+        <li>Led the Electrode Identifier feature — automating electrode selection and titration — recognized as a TIME Best Invention of 2025, saving clinicians hours per programming session.</li>
+        <li>Built the Automation Runner Tool, analyzing 17M+ lines of code and executing 20,000+ test cases, reducing manual validation effort by 90% and accelerating regulatory approval timelines from months to days.</li>
+        <li>Shipped major DBS releases (Sensight Directional Lead, Adaptive DBS) across FDA, TÜV, and NMPA markets.</li>
+        <li>Designed proprietary cryptographic frameworks for BLE-based neurostimulator communication, ensuring HIPAA/GDPR-compliant patient data protection.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <div class="role-title">Senior Software Engineer <span class="role-company">— Medtronic plc</span></div>
+        <div class="role-dates">Jul 2018 – Dec 2021</div>
+      </div>
+      <ul>
+        <li>Designed and shipped a cross-therapy mobile communication platform (Android & iOS) now adopted by multiple therapy teams across Medtronic's Neuromodulation division, eliminating redundant development efforts.</li>
+        <li>Implemented Kotlin Multiplatform (KMM) framework for shared business logic between iOS and Android, reducing code duplication and accelerating feature delivery.</li>
+        <li>Delivered reusable SDKs with documentation, dependency injection, and automated test frameworks, cutting onboarding time for new therapy teams.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <div class="role-title">Software Engineer <span class="role-company">— Medtronic plc</span></div>
+        <div class="role-dates">Apr 2015 – Jun 2018</div>
+      </div>
+      <ul>
+        <li>Developed Android applications for DBS therapy with secure BLE communication protocols, enabling real-time clinician-device interaction.</li>
+        <li>Built automated UI screen-capture and validation tooling, reducing manual regulatory compliance effort.</li>
+        <li>Resolved critical software defects and implemented modular design patterns (MVC, MVP, FLUX), improving long-term maintainability.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <div class="role-title">Software Developer <span class="role-company">— Open Access Technology Inc.</span></div>
+        <div class="role-dates">Jan 2014 – Mar 2015</div>
+      </div>
+      <ul>
+        <li>Resolved 150+ software defects and developed new modules (C#, JavaScript, SQL Server) for enterprise power trading and energy generation platforms.</li>
+        <li>Built C++-based optimization algorithms for energy unit commitment and load-balancing across regions.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <div class="role-title">Java Programmer <span class="role-company">— North Dakota State University</span></div>
+        <div class="role-dates">Apr 2012 – Dec 2013</div>
+      </div>
+      <ul>
+        <li>Built a full-stack web application (Java, MySQL, HTML/CSS/JS) to digitize the university's course proposal approval process, eliminating paper-based workflows.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PATENTS -->
+  <section class="section">
+    <div class="section-title">Patents</div>
+    <div class="patent-item">
+      <span class="patent-status granted">Granted</span>
+      <span class="patent-id">US12144637B2</span> — Brain Stimulation and Sensing: real-time therapy delivery optimization and brain signal monitoring
+    </div>
+    <div class="patent-item">
+      <span class="patent-status granted">Granted</span>
+      <span class="patent-id">US11986663B2</span> — Offline Session Review & Interactive Programming: clinician data review without device connectivity
+    </div>
+    <div class="patent-item">
+      <span class="patent-status granted">Granted</span>
+      <span class="patent-id">US11571576B2</span> — Brain Stimulation and Sensing: automated signal processing for adaptive DBS therapy
+    </div>
+    <div class="patent-item">
+      <span class="patent-status pending">Pending</span>
+      <span class="patent-id">WO2025029593A1</span> — UI for Electrode Sensing Results in a Medical Device System
+    </div>
+    <div class="patent-item">
+      <span class="patent-status pending">Pending</span>
+      <span class="patent-id">WO2025029591A1</span> — Electrode Ranking and Configuration Scoring for Medical Device Programming
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section class="section">
+    <div class="section-title">Awards</div>
+    <div class="award-item">
+      <span class="award-name">Medtronic Technical Contributor of the Year (2024)</span>
+      <span class="award-detail"> — Awarded to &lt;1% of 95,000+ global workforce for leading the Electrode Identifier, a breakthrough in therapy automation.</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">TIME Best Inventions 2025</span>
+      <span class="award-detail"> — Software Development Lead for the Medtronic Percept Deep Brain Stimulation system.</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Medtronic Sensight Award</span>
+      <span class="award-detail"> — Recognized for delivering the Sensight Directional Lead System across multiple international markets.</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-row">
+      <div><span class="edu-degree">Master of Science, Software Engineering</span> <span class="edu-school">— North Dakota State University, Fargo, ND</span></div>
+      <div class="edu-date">Dec 2014</div>
+    </div>
+    <div class="edu-row">
+      <div><span class="edu-degree">Bachelor of Science, Computer Science</span> <span class="edu-school">— North Dakota State University, Fargo, ND</span></div>
+      <div class="edu-date">May 2012</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
