@@ -131,17 +131,6 @@
     max-width: 700px;
   }
 
-  .hero-img {
-    width: 140px;
-    height: 160px;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 20px;
-    border: 3px solid rgba(255,255,255,0.15);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-    margin-bottom: 28px;
-  }
-
   .hero h1 {
     font-size: 3rem;
     font-weight: 800;
@@ -165,6 +154,28 @@
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    text-decoration: none;
+    animation: bounce 2s ease-in-out infinite;
+    transition: color 0.2s;
+  }
+
+  .scroll-indicator:hover {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
   }
 
   .btn-primary, .btn-outline {
@@ -491,6 +502,34 @@
     height: 1px;
     background: var(--border);
     margin: 0;
+  }
+
+  /* RESUME LAYOUT */
+  .resume-layout {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    cursor: default;
+  }
+
+  .resume-layout:hover {
+    transform: none;
+  }
+
+  .resume-photo {
+    width: 200px;
+    height: 240px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 16px;
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-card);
+    flex-shrink: 0;
+  }
+
+  .resume-text {
+    flex: 1;
+    min-width: 0;
   }
 
   /* CARDS */
@@ -1014,6 +1053,78 @@
     vertical-align: middle;
   }
 
+  /* EDUCATION */
+  .edu-card {
+    cursor: default;
+    text-align: center;
+  }
+
+  .edu-card:hover {
+    transform: none;
+  }
+
+  .edu-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin: 0 auto 16px;
+  }
+
+  .edu-degree {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-heading);
+  }
+
+  .edu-field {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .edu-school {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .edu-year {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  .edu-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .edu-link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .edu-link:hover {
+    background: rgba(8, 145, 178, 0.15);
+  }
+
   /* MEDIA */
   .media-grid {
     display: grid;
@@ -1351,6 +1462,15 @@
     .hero h1 { font-size: 2.2rem; }
     .hero .tagline { font-size: 1rem; }
 
+    .resume-layout {
+      flex-direction: column;
+      text-align: center;
+    }
+    .resume-photo {
+      width: 160px;
+      height: 192px;
+    }
+
     .time-banner { margin-top: -40px; }
 
     .time-banner-inner {
@@ -1401,7 +1521,6 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <img src="karan.png" alt="Karan Chitkara" class="hero-img" />
     <h1>Karan Chitkara</h1>
     <p class="tagline">Sr. Principal Software Engineer specializing in medical devices, cybersecurity, and patented neurotech innovation.</p>
     <div class="hero-cta">
@@ -1409,10 +1528,11 @@
       <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
     </div>
   </div>
+  <a href="#time-banner" class="scroll-indicator" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
 </section>
 
 <!-- TIME BEST INVENTIONS BANNER -->
-<div class="time-banner fade-up">
+<div id="time-banner" class="time-banner fade-up">
   <a href="https://time.com/collections/best-inventions-2025/7318446/medtronic-brainsense-adbs/" target="_blank" class="time-banner-inner">
     <div class="time-badge">
       <i class="fas fa-trophy"></i>
@@ -1458,14 +1578,17 @@
       <div class="section-label"><i class="fas fa-file-lines"></i> Resume</div>
       <h2 class="section-title">Background & Experience</h2>
     </div>
-    <div class="card">
-      <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
-        Medtronic software architect behind award-winning neurostimulation systems, a pioneer in DBS therapy programming logic, and inventor of multiple cited patents powering next-generation adaptive medical devices.
-      </p>
-      <div style="margin-top: 20px;">
-        <a href="Resume_Karan_elaborated.pdf" target="_blank" class="btn-primary" style="font-size: 0.9rem; padding: 10px 22px;">
-          <i class="fas fa-file-arrow-down"></i> Full Resume
-        </a>
+    <div class="card resume-layout">
+      <img src="karan.png" alt="Karan Chitkara" class="resume-photo" />
+      <div class="resume-text">
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+          Medtronic software architect behind award-winning neurostimulation systems, a pioneer in DBS therapy programming logic, and inventor of multiple cited patents powering next-generation adaptive medical devices.
+        </p>
+        <div style="margin-top: 20px;">
+          <a href="Resume_Karan_elaborated.pdf" target="_blank" class="btn-primary" style="font-size: 0.9rem; padding: 10px 22px;">
+            <i class="fas fa-file-arrow-down"></i> Full Resume
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -2248,6 +2371,43 @@
       <div class="timeline-item">
         <div class="timeline-year">2012</div>
         <div class="timeline-text">Earned Bachelor's degree in Computer Science from <strong>North Dakota State University</strong>.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- EDUCATION -->
+  <section id="education" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-graduation-cap"></i> Education</div>
+      <h2 class="section-title">Academic Background</h2>
+    </div>
+    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="card edu-card">
+        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="edu-degree">Master of Science</div>
+        <div class="edu-field">Software Engineering</div>
+        <div class="edu-school"><i class="fas fa-university"></i> North Dakota State University, Fargo, ND</div>
+        <div class="edu-year">December 2014</div>
+        <div class="edu-badges">
+          <a href="https://library.ndsu.edu/ir/items/26ccb6c8-49d4-48b2-bfe6-de238735c3db" target="_blank" class="badge-tag edu-link">
+            <i class="fas fa-microscope"></i> Research: Interactive Visualization for Opinion Mining
+          </a>
+          <a href="https://scholar.google.com/citations?user=NtgsucYAAAAJ&hl=en&oi=ao" target="_blank" class="badge-tag edu-link">
+            <i class="fas fa-book-open"></i> Google Scholar Profile
+          </a>
+        </div>
+      </div>
+      <div class="card edu-card">
+        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="edu-degree">Bachelor of Science</div>
+        <div class="edu-field">Computer Science</div>
+        <div class="edu-school"><i class="fas fa-university"></i> North Dakota State University, Fargo, ND</div>
+        <div class="edu-year">May 2012</div>
+        <div class="edu-badges">
+          <span class="badge-tag"><i class="fas fa-laptop-code"></i> Foundation for Medical Device Software Career</span>
+        </div>
       </div>
     </div>
   </section>
