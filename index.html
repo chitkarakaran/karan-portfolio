@@ -1589,7 +1589,6 @@
   <a href="#resume" class="scroll-dot" data-section="resume"><span class="dot-label">Resume</span><span class="dot-circle"></span></a>
   <a href="#patents" class="scroll-dot" data-section="patents"><span class="dot-label">Patents</span><span class="dot-circle"></span></a>
   <a href="#skills" class="scroll-dot" data-section="skills"><span class="dot-label">Skills</span><span class="dot-circle"></span></a>
-  <a href="#projects" class="scroll-dot" data-section="projects"><span class="dot-label">Projects</span><span class="dot-circle"></span></a>
   <a href="#awards" class="scroll-dot" data-section="awards"><span class="dot-label">Awards</span><span class="dot-circle"></span></a>
   <a href="#impact" class="scroll-dot" data-section="impact"><span class="dot-label">Impact</span><span class="dot-circle"></span></a>
   <a href="#timeline" class="scroll-dot" data-section="timeline"><span class="dot-label">Timeline</span><span class="dot-circle"></span></a>
@@ -1609,7 +1608,6 @@
       <a href="#resume">Resume</a>
       <a href="#patents">Patents</a>
       <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
       <a href="#timeline">Timeline</a>
       <a href="#featured">Media</a>
@@ -2280,39 +2278,6 @@
 
   <hr class="divider">
 
-  <!-- PROJECTS -->
-  <section id="projects" class="fade-up">
-    <div class="section-header">
-      <div class="section-label"><i class="fas fa-rocket"></i> Engineering</div>
-      <h2 class="section-title">Major Projects</h2>
-    </div>
-    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-      <div class="card project-card">
-        <div class="card-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">
-          <i class="fas fa-brain"></i>
-        </div>
-        <h3>Adaptive DBS (aDBS)</h3>
-        <p>Global software lead for the first FDA-cleared closed-loop neurostimulator &mdash; recognized as a TIME Best Invention 2025.</p>
-      </div>
-      <div class="card project-card">
-        <div class="card-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--accent);">
-          <i class="fas fa-microchip"></i>
-        </div>
-        <h3>SenSight Leads</h3>
-        <p>Architected the software programming stack for the world's first directional sensing lead system.</p>
-      </div>
-      <div class="card project-card">
-        <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--gold);">
-          <i class="fas fa-shield-halved"></i>
-        </div>
-        <h3>External Neurostimulator (ENS)</h3>
-        <p>Leading the redesign of Medtronic's ENS platform with modern BLE connectivity, cyber-secure provisioning, and cross-portfolio code reuse.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
   <!-- AWARDS -->
   <section id="awards" class="fade-up">
     <div class="section-header">
@@ -2456,9 +2421,13 @@
         <div class="timeline-year"><i class="fas fa-arrow-up"></i> 2018</div>
         <div class="timeline-text">Promoted to <strong>Senior Software Engineer</strong> &mdash; Architected cross-therapy mobile communication platform. <span class="promo-badge">Promotion</span></div>
       </div>
+      <div class="timeline-item promotion">
+        <div class="timeline-year"><i class="fas fa-arrow-up"></i> 2017</div>
+        <div class="timeline-text">Promoted to <strong>Software Engineer</strong> &mdash; Designed mobile applications and automation tools for DBS therapy. <span class="promo-badge">Promotion</span></div>
+      </div>
       <div class="timeline-item">
         <div class="timeline-year">2015</div>
-        <div class="timeline-text">Joined <strong>Medtronic</strong> as Software Engineer in the Neurostimulation Division.</div>
+        <div class="timeline-text">Joined <strong>Medtronic</strong> as Associate Software Engineer in the Neurostimulation Division.</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2014</div>
@@ -2699,7 +2668,7 @@
 
   // Scroll-spy for navbar + dot nav
   (function() {
-    const sectionIds = ['resume','patents','skills','projects','awards','impact','timeline','education','featured','ai','beyond','contact'];
+    const sectionIds = ['resume','patents','skills','awards','impact','timeline','education','featured','ai','beyond','contact'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     const dotLinks = document.querySelectorAll('.scroll-dot');
