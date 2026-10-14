@@ -360,7 +360,7 @@
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
   }
 
@@ -403,34 +403,6 @@
     text-align: center;
     font-size: 0.85rem;
     color: var(--text-muted);
-  }
-
-  .case-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 32px;
-  }
-
-  .case-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 4px;
-  }
-
-  .case-text {
-    color: var(--text);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .case-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
   }
 
   /* SKILLS */
@@ -488,10 +460,6 @@
     }
 
     .stat-number { font-size: 1.8rem; }
-
-    .case-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (max-width: 480px) {
@@ -1672,7 +1640,6 @@
     <p class="tagline">Sr. Principal Software Engineer specializing in medical devices, cybersecurity, and patented neurotech innovation.</p>
     <div class="hero-cta">
       <a href="resume-short.html" class="btn-primary" target="_blank"><i class="fas fa-file-arrow-down"></i> Resume</a>
-      <a href="resume-short.pdf" class="btn-outline" download><i class="fas fa-file-pdf"></i> Resume PDF</a>
       <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
     </div>
   </div>
@@ -1708,8 +1675,12 @@
       <div class="stat-label">Granted Patents</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">52</div>
-      <div class="stat-label">Citing Families</div>
+      <div class="stat-number">2</div>
+      <div class="stat-label">Pending Patents</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <div class="stat-label">In Pipeline</div>
     </div>
     <div class="stat-item">
       <div class="stat-number">1</div>
@@ -1720,41 +1691,6 @@
 </div>
 
 <div class="container">
-
-  <!-- SHIPPED -->
-  <section id="shipped" class="fade-up">
-    <div class="section-header">
-      <div class="section-label"><i class="fas fa-brain"></i> What Shipped</div>
-      <h2 class="section-title">BrainSense Adaptive DBS</h2>
-      <p class="section-subtitle">The programming system behind Medtronic's adaptive deep brain stimulation therapy.</p>
-    </div>
-    <div class="card">
-      <div class="case-grid">
-        <div>
-          <div class="case-label">Problem</div>
-          <p class="case-text">Clinicians spent hours choosing electrodes and stimulation settings by trial and error.</p>
-        </div>
-        <div>
-          <div class="case-label">Role</div>
-          <p class="case-text">Software Architect for the clinician programming software.</p>
-        </div>
-        <div>
-          <div class="case-label">Constraint</div>
-          <p class="case-text">Safety-critical device software cleared through FDA, TÜV, and NMPA.</p>
-        </div>
-        <div>
-          <div class="case-label">Outcome</div>
-          <p class="case-text">Electrode Identifier shipped in BrainSense adaptive DBS, named a TIME Best Invention of 2025, and cited by the patent families listed below.</p>
-        </div>
-      </div>
-      <div class="case-links">
-        <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> WO2025029591A1</a>
-        <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> WO2025029593A1</a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
 
   <!-- RESUME -->
   <section id="resume" class="fade-up">
