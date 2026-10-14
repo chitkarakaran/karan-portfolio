@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karan Chitkara | Medical Device Software Engineer</title>
+  <meta name="description" content="Software Architect for Medtronic BrainSense adaptive DBS, a TIME Best Invention of 2025. Three granted patents cited by 52 patent families." />
+  <meta property="og:title" content="Karan Chitkara | Medical Device Software Engineer" />
+  <meta property="og:description" content="Software Architect for Medtronic BrainSense adaptive DBS, recognized by TIME as a Best Invention of 2025." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://chitkara.io/" />
+  <meta property="og:image" content="https://chitkara.io/karan.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Karan Chitkara | Medical Device Software Engineer" />
+  <meta name="twitter:description" content="Software Architect for Medtronic BrainSense adaptive DBS, recognized by TIME as a Best Invention of 2025." />
+  <meta name="twitter:image" content="https://chitkara.io/karan.jpg" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -388,6 +398,41 @@
     margin-top: 6px;
   }
 
+  .stats-note {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 32px;
+  }
+
+  .case-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+
+  .case-text {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .case-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
   /* SKILLS */
   .skills-grid {
     display: grid;
@@ -443,6 +488,10 @@
     }
 
     .stat-number { font-size: 1.8rem; }
+
+    .case-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 480px) {
@@ -1623,6 +1672,7 @@
     <p class="tagline">Sr. Principal Software Engineer specializing in medical devices, cybersecurity, and patented neurotech innovation.</p>
     <div class="hero-cta">
       <a href="resume-short.html" class="btn-primary" target="_blank"><i class="fas fa-file-arrow-down"></i> Resume</a>
+      <a href="resume-short.pdf" class="btn-outline" download><i class="fas fa-file-pdf"></i> Resume PDF</a>
       <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
     </div>
   </div>
@@ -1654,21 +1704,57 @@
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">5</div>
-      <div class="stat-label">Patents</div>
+      <div class="stat-number">3</div>
+      <div class="stat-label">Granted Patents</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">52</div>
+      <div class="stat-label">Citing Families</div>
     </div>
     <div class="stat-item">
       <div class="stat-number">1</div>
       <div class="stat-label">Active Trade Secret</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-number">2</div>
-      <div class="stat-label">New Patents in Pipeline</div>
-    </div>
   </div>
+  <p class="stats-note">The active trade secret is confidential and is not a published patent.</p>
 </div>
 
 <div class="container">
+
+  <!-- SHIPPED -->
+  <section id="shipped" class="fade-up">
+    <div class="section-header">
+      <div class="section-label"><i class="fas fa-brain"></i> What Shipped</div>
+      <h2 class="section-title">BrainSense Adaptive DBS</h2>
+      <p class="section-subtitle">The programming system behind Medtronic's adaptive deep brain stimulation therapy.</p>
+    </div>
+    <div class="card">
+      <div class="case-grid">
+        <div>
+          <div class="case-label">Problem</div>
+          <p class="case-text">Clinicians spent hours choosing electrodes and stimulation settings by trial and error.</p>
+        </div>
+        <div>
+          <div class="case-label">Role</div>
+          <p class="case-text">Software Architect for the clinician programming software.</p>
+        </div>
+        <div>
+          <div class="case-label">Constraint</div>
+          <p class="case-text">Safety-critical device software cleared through FDA, TÜV, and NMPA.</p>
+        </div>
+        <div>
+          <div class="case-label">Outcome</div>
+          <p class="case-text">Electrode Identifier shipped in BrainSense adaptive DBS, named a TIME Best Invention of 2025, and cited by the patent families listed below.</p>
+        </div>
+      </div>
+      <div class="case-links">
+        <a href="https://patents.google.com/patent/WO2025029591A1/en" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> WO2025029591A1</a>
+        <a href="https://patents.google.com/patent/WO2025029593A1/en" target="_blank" class="btn-verify"><i class="fas fa-arrow-up-right-from-square"></i> WO2025029593A1</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
 
   <!-- RESUME -->
   <section id="resume" class="fade-up">
@@ -2613,7 +2699,7 @@
         <div class="edu-year">December 2014</div>
         <div class="edu-badges">
           <a href="https://library.ndsu.edu/ir/items/26ccb6c8-49d4-48b2-bfe6-de238735c3db" target="_blank" class="badge-tag edu-link">
-            <i class="fas fa-microscope"></i> Research: Interactive Visualization for Opinion Mining
+            <i class="fas fa-microscope"></i> Master's Thesis: Interactive Visualization for Opinion Mining
           </a>
           <a href="https://scholar.google.com/citations?user=NtgsucYAAAAJ&hl=en&oi=ao" target="_blank" class="badge-tag edu-link">
             <i class="fas fa-book-open"></i> Google Scholar Profile
